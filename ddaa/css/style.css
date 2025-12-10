@@ -1,0 +1,2069 @@
+/* ==========================================================================
+   WRAPPER PRINCIPAL E LAYOUT
+   ========================================================================== */
+
+   #cc-supabase-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+/* Área dos cartões (esquerda) */
+#cc-supabase-results {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Área dos filtros (direita) */
+#cc-supabase-filters {
+  flex: 0 0 280px;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  position: sticky;
+  top: 20px;
+  font-size: 0.9rem;
+}
+
+/* Cabeçalho dos filtros */
+.cc-filters-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.cc-filters-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cc-filters-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.cc-filters-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.3;
+}
+
+.cc-filters-counter {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+  padding-left: 32px; /* Alinha com o título (ícone + gap) */
+}
+
+/* Estilos para formulário de filtros */
+#cc-supabase-filter-form {
+  display: block;
+}
+
+#cc-supabase-filter-form .filter-group {
+  margin-bottom: 1.25rem;
+}
+
+#cc-supabase-filter-form .superLabel {
+  display: block !important;
+  margin-bottom: 0.6rem !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  color: #333 !important;
+  line-height: 1.2 !important;
+}
+
+/* Input de texto */
+#cc-supabase-filter-form .inputText {
+  width: 100% !important;
+  padding: 0.6rem !important;
+  font-size: 0.9rem !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+/* Filtros de rádio */
+#cc-supabase-filter-form input[type="checkbox"] {
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  transform: scale(0.9) !important;
+}
+
+#cc-supabase-filter-form input[type="checkbox"] + label {
+  margin-left: 0.4rem !important;
+  font-size: 0.85rem !important;
+  color: #555 !important;
+  cursor: pointer !important;
+  line-height: 1.3 !important;
+}
+
+#cc-supabase-filter-form input[type="checkbox"]:checked + label {
+  color: #333 !important;
+  font-weight: 500 !important;
+}
+
+/* Container dos radio buttons */
+#cc-supabase-filter-form .filter-group > div[style*="flex"] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.8rem !important;
+  margin-top: 0.3rem !important;
+}
+
+#cc-supabase-filter-form .filter-group > div[style*="flex"] span {
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+/* Range slider (renda) */
+#cc-supabase-filter-form input[type="range"] {
+  width: 100% !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  background: #ddd !important;
+  outline: none !important;
+  opacity: 0.8 !important;
+  margin: 0.5rem 0 !important;
+  cursor: pointer !important;
+}
+
+#cc-supabase-filter-form input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6c6c6c;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+#cc-supabase-filter-form input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6c6c6c;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Texto do range */
+#cc-supabase-filter-form span[id*="_display"] {
+  font-weight: 600 !important;
+  color: #2c2962 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Labels de min/max do range */
+#cc-supabase-filter-form div[style*="space-between"] span {
+  font-size: 0.8rem !important;
+  color: #666 !important;
+}
+
+/* ==========================================================================
+   NOVAS CLASSES PARA SUBSTITUIR ESTILOS INLINE
+   ========================================================================== */
+
+/* Container das opções de radio */
+.cc-checkbox-options {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+}
+
+.cc-checkbox-options span {
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.cc-checkbox-options label {
+  margin-left: 0.5rem !important;
+  font-size: 0.85rem !important;
+  color: #555 !important;
+  cursor: pointer !important;
+}
+
+/* Container do range com formatação de moeda */
+.cc-range-container {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.cc-range-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.cc-range-input {
+  width: 100% !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  background: #ddd !important;
+  outline: none !important;
+  opacity: 0.8 !important;
+}
+
+.cc-range-minmax {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.cc-range-simple {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cc-range-simple input {
+  width: 100%;
+}
+
+.cc-range-simple span {
+  white-space: nowrap;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Mensagens de erro e sem resultados */
+.cc-error-message {
+  color: #e74c3c !important;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1rem;
+  background: #fff2f2;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.cc-no-results {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 1.1rem;
+  color: #6c757d;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Container do conteúdo do cartão */
+.cc-card-content {
+  flex: 1 1 auto;
+}
+
+/* Container de paginação */
+.cc-pagination-container {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.cc-supabase-page-btn {
+  margin: 0 3px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #495057;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.cc-supabase-page-btn:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.cc-supabase-page-btn.cc-page-current {
+  background: #0032FA;
+  color: white;
+  border-color: #0032FA;
+  font-weight: bold;
+}
+
+/* Imagem do cartão único */
+.cc-single-image {
+  max-width: 300px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Conteúdo do cartão único */
+.cc-single-content {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #555;
+}
+#cc-supabase-results {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  gap: 2rem;
+}
+.cc-supabase-card {
+  background: #fafbfc;
+  border: 1px solid #eef;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,80,0.03);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 370px;
+  width: 100%;
+  margin: auto 1em;
+}
+.cc-supabase-card img {
+  max-width: 80%;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #eef;
+}
+.cc-supabase-card .cc-row{
+  margin-bottom: 8px;
+  font-size: 0.96em;
+}
+.cc-supabase-card .cc-title{
+  font-weight: bold;
+  font-size: 1.28em;
+  color: #2c2962;
+  margin-bottom: 6px;
+}
+input.inputText{
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+label.superLabel{
+  display: block;
+}
+a.btnA{
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #6c6c6c;
+  color: #ffff;
+  text-decoration: none;
+}
+div.cc-row.btn{
+  margin: 10px auto;
+}
+#cc-filter-category {
+  background: #fff;
+  border: 1px solid #ffd700;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.09);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  min-width: 220px;
+}
+#cc-filter-incoming {
+  background: #fff;
+  border: 1px solid #80c948;
+  box-shadow: 0 2px 8px rgba(128,201,72,0.10);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+#cc-filter-benefits {
+  background: #fff;
+  border: 1px solid #1e90ff;
+  box-shadow: 0 2px 8px rgba(30,144,255,0.11);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+#cc-filter-flag {
+  background: #fff;
+  border: 1px solid #9a59b5;
+  box-shadow: 0 2px 8px rgba(154,89,181,0.11);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+#cc-filter-annuity {
+  background: #fff;
+  border: 1px solid #fa994d;
+  box-shadow: 0 2px 8px rgba(250,153,77,0.11);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+#cc-filter-cover {
+  background: #fff;
+  border: 1px solid #4444dd;
+  box-shadow: 0 2px 8px rgba(68,68,221,0.09);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+#cc-filter-institution {
+  background: #fff;
+  border: 1px solid #54b689;
+  box-shadow: 0 2px 8px rgba(84,182,137,0.10);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+#cc-supabase-recommend{
+  display: flex;
+  width: 970px;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  border-radius: 20px;
+  background: var(--Color-Neutral-neutral-lightest, #FBFBFB);
+}
+#cc-supabase-card-image{
+  width: 280px;
+  height: 171px;
+  flex-shrink: 0;
+  aspect-ratio: 208/127;
+  border-radius: 10px;
+  background: lightgray;
+}
+#cc-supabase-recom{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  flex: 1;
+  min-width: 0;
+}
+#cc-supabase-pro-cons{
+
+}
+
+/* ==========================================================================
+   GRID DE CARTÕES - NOVO LAYOUT
+   ========================================================================== */
+
+   .cc-cards-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+    row-gap: 1.5rem !important;
+    column-gap: 1.5rem !important;
+    margin: 0 0 2rem 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+/* Cartões individuais */
+.cc-cards-grid .cc-supabase-card {
+  margin: 0 !important;
+  padding: 1rem !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 340px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  background: #fafbfc !important;
+  border: 1px solid #eef !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(0,0,80,0.03) !important;
+  cursor: pointer;
+}
+.cc-cards-grid .cc-supabase-card:hover{
+  border-color: #24B500 !important;
+  background: #f8fff8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(36, 181, 0, 0.15) !important;
+}
+
+/* Imagem do cartão - ocupa linha inteira no topo */
+.cc-cards-grid .cc-supabase-card img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 120px !important;
+  object-fit: contain !important;
+  margin: 0 0 0.75rem 0 !important;
+  border-radius: 4px !important;
+}
+
+/* Título em preto e negrito */
+.cc-cards-grid .cc-supabase-card .cc-title {
+  font-size: 1.1rem !important;
+  font-weight: bold !important;
+  color: #000 !important;
+  margin: 0 0 0.5rem 0 !important;
+  line-height: 1.3 !important;
+}
+
+/* Linhas de informações do cartão */
+.cc-cards-grid .cc-supabase-card .cc-row {
+  margin-bottom: 0.4rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* Labels dos campos (Anuidade, Tipo) em azul */
+.cc-cards-grid .cc-supabase-card .cc-row span:first-child {
+  color: #0032FA !important;
+  font-weight: 500 !important;
+}
+
+/* Valores dos campos em preto */
+.cc-cards-grid .cc-supabase-card .cc-row span:last-child {
+  color: #000 !important;
+}
+
+.cc-cards-grid .cc-supabase-card .cc-row:last-of-type {
+  margin-bottom: 0.75rem !important;
+}
+
+/* Container do botão */
+.cc-cards-grid .cc-supabase-card .cc-row.btn {
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+/* Botão estilizado */
+.cc-cards-grid .cc-supabase-card .btnA {
+  display: inline-block !important;
+  padding: 10px 20px !important;
+  font-size: 0.9rem !important;
+  background-color: #0032FA !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 100px !important;
+  transition: background-color 0.3s !important;
+  font-weight: 500 !important;
+}
+
+.cc-cards-grid .cc-supabase-card .btnA:hover {
+  background-color: #001f99 !important;
+}
+
+/* Forçar reset de margens do container de resultados */
+#cc-supabase-results .cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+}
+
+/* Override specific para manter layout de 2 colunas no credit_cards_supabase */
+#cc-supabase-results {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+/* Layout de 2 colunas para o shortcode principal com filtros */
+#cc-supabase-results > .cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  margin: 0 0 2rem 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* Responsive para layout de 2 colunas */
+@media (max-width: 768px) {
+  #cc-supabase-results > .cc-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ==========================================================================
+   ADMIN FORM STYLES - Replacement for inline styles
+   ========================================================================== */
+
+/* Form table styles */
+.cc-admin-table {
+  width: 100%;
+  max-width: 600px;
+}
+
+.cc-admin-table th,
+.cc-admin-table-header {
+  text-align: left;
+  vertical-align: top;
+  padding: 15px 10px 5px 0;
+  width: 150px;
+}
+
+.cc-admin-table td,
+.cc-admin-table-cell {
+  padding: 15px 0 5px 10px;
+}
+
+/* Form inputs */
+.cc-form-input {
+  width: 100%;
+  max-width: 400px;
+}
+
+.cc-form-select {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Benefits help text */
+.cc-benefits-help {
+  margin-top: 6px;
+  color: #666;
+  font-size: 12px;
+}
+
+/* Disadvantage fields container */
+.cc-disadvantage-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.cc-disadvantage-row input[type="text"] {
+  flex: 1;
+}
+
+.cc-disadvantage-row input[type="text"]:last-of-type {
+  flex: 2;
+}
+
+.cc-disadvantage-remove-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cc-disadvantage-add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.cc-disadvantage-help {
+  margin-top: 6px;
+  color: #666;
+  font-size: 12px;
+}
+
+/* Card detail styles for modal display */
+.cc-card-details {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cc-card-details h2 {
+  color: #000000;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+.cc-card-details h2.cc-benefits-title {
+  color: #24B500;
+}
+
+.cc-card-details h2.cc-disadvantages-title {
+  color: #B42318;
+}
+
+.cc-card-detail-item {
+  margin-bottom: 0.75rem;
+}
+
+.cc-card-detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.cc-card-detail-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.cc-card-detail-value {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.cc-card-detail-value.cc-positive {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.cc-card-detail-value.cc-negative {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+.cc-card-detail-value.cc-not-informed {
+  color: #999;
+}
+
+/* Benefits and disadvantages grid */
+.cc-benefits-grid,
+.cc-disadvantages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.cc-benefit-item,
+.cc-disadvantage-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.cc-benefit-item.cc-single,
+.cc-disadvantage-item.cc-single {
+  max-width: 50%;
+}
+
+.cc-benefit-icon,
+.cc-disadvantage-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cc-benefit-content,
+.cc-disadvantage-content {
+  flex: 1;
+}
+
+.cc-benefit-label,
+.cc-disadvantage-label {
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.cc-benefit-description,
+.cc-disadvantage-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cc-flag-separator {
+  margin: 0 8px;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.cc-flag-image {
+  height: 20px;
+  margin: 0 4px;
+}
+
+/* Error and status messages */
+.cc-not-found {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+}
+
+.cc-no-benefits,
+.cc-no-disadvantages {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+/* Admin page specific loading states */
+.cc-loading-btn {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Override for JavaScript-generated styles */
+.cc-js-override {
+  display: flex !important;
+  gap: 10px !important;
+  margin-bottom: 10px !important;
+  align-items: center !important;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .cc-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  #cc-supabase-wrapper {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #cc-supabase-filters {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* Ajustes para mobile */
+@media (max-width: 480px) {
+  .cc-cards-grid {
+    padding: 0.25rem !important;
+    gap: 0.75rem !important;
+  }
+  
+  .cc-supabase-card {
+    padding: 1rem;
+    height: auto;
+    min-height: 320px;
+  }
+  
+  #cc-supabase-wrapper {
+    margin: 1rem 0;
+  }
+}
+
+/* =====================================
+   STANDALONE SHORTCODE STYLES - FORCE 4 COLUMNS
+   ===================================== */
+
+/* Standalone wrapper - full width container */
+.cc-standalone-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Force 4-column grid layout for standalone results */
+#cc-standalone-results,
+#cc-standalone-results > .cc-cards-grid,
+.cc-standalone-grid-container > .cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Override any conflicting grid rules for standalone */
+#cc-standalone-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding: 1rem !important;
+}
+
+#cc-standalone-container .cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Super specific rules to override any other grid rules */
+#cc-standalone-results.cc-standalone-grid-container .cc-cards-grid,
+#cc-standalone-results .cc-cards-grid,
+.cc-standalone-wrapper #cc-standalone-results .cc-cards-grid,
+.cc-standalone-wrapper .cc-standalone-grid-container .cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* NUCLEAR RULES - Override everything for standalone */
+body #cc-standalone-container .cc-cards-grid,
+body #cc-standalone-results .cc-cards-grid,
+body .cc-standalone-wrapper #cc-standalone-results .cc-cards-grid,
+body div#cc-standalone-results div.cc-cards-grid,
+body div#cc-standalone-container div.cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Remove any inherited 2-column rules from standalone */
+body #cc-standalone-container,
+body #cc-standalone-results {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+body #cc-standalone-container .cc-cards-grid:not(.cc-filtered),
+body #cc-standalone-results .cc-cards-grid:not(.cc-filtered) {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+
+/* Standalone cards styling - ensure they fill the grid properly */
+#cc-standalone-container .cc-supabase-card,
+#cc-standalone-results .cc-supabase-card {
+  background: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 450px !important;
+  min-height: 450px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  border: 1px solid #eee !important;
+}
+
+/* Additional rules for better card height and grid layout */
+#cc-standalone-container .cc-cards-grid .cc-supabase-card,
+#cc-standalone-results .cc-cards-grid .cc-supabase-card {
+  height: 450px !important;
+  min-height: 450px !important;
+  width: 100% !important;
+}
+
+#cc-standalone-container .cc-supabase-card:hover,
+#cc-standalone-results .cc-supabase-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+#cc-standalone-container .cc-card-content,
+#cc-standalone-results .cc-card-content {
+  padding: 20px !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+#cc-standalone-container .cc-card-content img,
+#cc-standalone-results .cc-card-content img {
+  width: 100% !important;
+  height: 120px !important;
+  object-fit: contain !important;
+  margin-bottom: 15px !important;
+  border-radius: 8px !important;
+  border: none !important;
+}
+
+#cc-standalone-container .cc-title,
+#cc-standalone-results .cc-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #2c3e50 !important;
+  margin-bottom: 10px !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+}
+
+#cc-standalone-container .cc-row,
+#cc-standalone-results .cc-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 5px 0 !important;
+  font-size: 14px !important;
+  color: #555 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  margin-bottom: 5px !important;
+}
+
+#cc-standalone-container .cc-row:not(.btn):last-child,
+#cc-standalone-results .cc-row:not(.btn):last-child {
+  border-bottom: none !important;
+}
+
+#cc-standalone-container .cc-row span:first-child,
+#cc-standalone-results .cc-row span:first-child {
+  font-weight: 500 !important;
+  color: #0032FA !important;
+}
+
+#cc-standalone-container .cc-row span:last-child,
+#cc-standalone-results .cc-row span:last-child {
+  color: #000 !important;
+}
+
+#cc-standalone-container .cc-row.btn,
+#cc-standalone-results .cc-row.btn {
+  margin-top: auto !important;
+  padding: 15px 20px !important;
+  border-top: 1px solid #f0f0f0 !important;
+  justify-content: center !important;
+  background-color: #f8f9fa !important;
+  margin-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+#cc-standalone-container .btnA,
+#cc-standalone-results .btnA {
+  display: inline-block !important;
+  background: #0032FA !important;
+  color: white !important;
+  text-decoration: none !important;
+  padding: 10px 20px !important;
+  border-radius: 100px !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  font-size: 14px !important;
+}
+
+#cc-standalone-container .btnA:hover,
+#cc-standalone-results .btnA:hover {
+  background: #001f99 !important;
+  transform: translateY(-1px) !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+/* Responsive design - but keep 4 columns as long as possible */
+@media (max-width: 1400px) {
+  #cc-standalone-container .cc-cards-grid,
+  #cc-standalone-results > .cc-cards-grid {
+    gap: 15px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  #cc-standalone-container .cc-cards-grid,
+  #cc-standalone-results > .cc-cards-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #cc-standalone-container .cc-cards-grid,
+  #cc-standalone-results > .cc-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+  }
+  
+  .cc-standalone-wrapper {
+    padding: 15px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #cc-standalone-container .cc-cards-grid,
+  #cc-standalone-results > .cc-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+  
+  #cc-standalone-container .cc-card-content,
+  #cc-standalone-results .cc-card-content {
+    padding: 15px !important;
+  }
+}
+
+/* Admin Pages Styles - Estilos das Páginas de Administração */
+
+/* Filter Section Styles */
+.filter-section {
+  margin-bottom: 30px;
+  border: 1px solid #ccd0d4;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.filter-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.filter-options-container {
+  margin-bottom: 15px;
+}
+
+/* Filter content span */
+.filter-content {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Benefits grid form layout */
+.benefits-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Regular filter form layout */
+.filter-form-flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Range filter form layout */
+.range-form-flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Filter form inputs */
+.filter-form input[type="text"] {
+  width: 100%;
+}
+
+.filter-form input[type="number"] {
+  width: 100px;
+}
+
+.filter-form-flex input[type="text"] {
+  flex: 1;
+  max-width: 300px;
+}
+
+/* Income filter specific styles */
+.filter-section-income {
+  margin-bottom: 30px;
+  border: 1px solid #ccd0d4;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.income-form-flex {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.income-input-number {
+  width: 100px;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+}
+
+/* Shortcode list styling */
+.shortcode-list {
+  margin-left: 1.25rem;
+}
+
+/* Search input styling */
+.cc-search-input {
+  min-width: 320px;
+  margin: 12px 0;
+  padding: 6px;
+}
+
+/* Table headers and cells */
+.cc-table-id {
+  width: 80px;
+}
+
+.cc-table-shortcode {
+  min-width: 240px;
+}
+
+.cc-table-actions {
+  width: 140px;
+}
+
+/* Modal styles */
+.cc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.cc-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  width: 90%;
+}
+
+.cc-modal-header {
+  margin-top: 0;
+}
+
+.cc-modal-footer {
+  margin-top: 20px;
+  text-align: right;
+}
+
+/* Form table styles */
+.cc-form-table {
+  width: 100%;
+  max-width: 600px;
+}
+
+.cc-form-table th {
+  text-align: left;
+  vertical-align: top;
+  padding: 15px 10px 5px 0;
+  width: 150px;
+}
+
+.cc-form-table td {
+  padding: 15px 0 5px 10px;
+}
+
+.cc-form-table input[type="text"],
+.cc-form-table input[type="number"],
+.cc-form-table input[type="file"],
+.cc-form-table select {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Benefits select styling */
+.cc-benefits-select {
+  width: 100%;
+  max-width: 400px;
+}
+
+.cc-benefits-help {
+  margin-top: 6px;
+  color: #666;
+  font-size: 12px;
+}
+
+/* Edit modal specific styles */
+.cc-edit-form input,
+.cc-edit-form select {
+  width: 100%;
+}
+
+.cc-edit-form .cc-image-info {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.cc-edit-form .cc-current-image {
+  margin: 5px 0;
+  font-size: 12px;
+}
+
+.cc-edit-form .cc-image-name-input {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.cc-edit-form .cc-multi-select-help {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Shortcode container styles */
+.cc-recommend-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cc-card-image-container {
+  flex: 0 0 300px;
+  text-align: center;
+}
+
+.cc-recommendations-container {
+  flex: 1;
+}
+
+/* Shortcode image styles */
+.cc-shortcode-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cc-shortcode-image-small {
+  max-width: 320px;
+}
+
+/* Recommendations list styles */
+.cc-recommendations-list {
+  padding-left: 0;
+  margin: 0;
+}
+
+.cc-recommendation-item {
+  list-style: none;
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Estilos específicos para o container de recomendações */
+#cc-supabase-recom ul {
+  padding-left: 0 !important;
+  margin: 0 !important;
+}
+
+#cc-supabase-recom li {
+  list-style: none !important;
+  position: relative !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 0.75rem 0.75rem 3rem !important;
+  background: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+#cc-supabase-recom li span[style*="absolute"] {
+  position: absolute !important;
+  left: 0.75rem !important;
+  top: 0.75rem !important;
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+#cc-supabase-recom li div[style*="flex-direction: column"] {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.cc-recommendation-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Ícone SVG da recomendação */
+.cc-recommendation-icon svg {
+  flex-shrink: 0;
+}
+
+/* Sem recomendações */
+.cc-no-recommendations {
+  color: #666;
+  font-style: italic;
+}
+
+.cc-recommendation-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cc-recommendation-label {
+  font-size: 1rem;
+  color: #24B500;
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.cc-recommendation-label.has-content {
+  margin-bottom: 0.25rem;
+}
+
+.cc-recommendation-description {
+  font-size: 0.85rem;
+  color: #000000;
+  line-height: 1.3;
+}
+
+/* No recommendations message */
+.cc-no-recommendations {
+  color: #666;
+  font-style: italic;
+}
+
+/* Error message */
+.cc-error-message {
+  color: #e74c3c;
+}
+
+/* Pros and cons styles */
+.cc-pros-cons-container {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cc-pros-container,
+.cc-cons-container {
+  min-width: 220px;
+}
+
+.cc-pros-cons-container h3 {
+  margin-top: 0;
+}
+
+/* Filter card styles (moved from inline) */
+li.card {
+  cursor: pointer !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 8px 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  margin-bottom: 4px !important;
+  background: #f9f9f9 !important;
+}
+
+li.card .filter-details {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: left !important;
+}
+
+li.card:hover {
+  background: #f0f0f0 !important;
+}
+
+li.card .filter-label {
+  font-weight: 500 !important;
+}
+
+li.card .filter-content {
+  font-size: 0.85rem !important;
+  color: #666 !important;
+  margin-top: 2px !important;
+}
+
+li.card .delete-icon {
+  color: #dc3545 !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  padding: 2px 4px !important;
+  border-radius: 2px !important;
+  transition: background-color 0.2s !important;
+}
+
+li.card .delete-icon:hover {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+/* ==========================================================================
+   PAGINAÇÃO E ELEMENTOS DE INTERFACE
+   ========================================================================== */
+
+   #cc-supabase-pagination {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .cc-supabase-page-btn {
+    margin: 0 3px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  .cc-supabase-page-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+  }
+
+  .cc-supabase-page-btn[style*="bold"] {
+    background: #0032FA;
+    color: white;
+    border-color: #0032FA;
+    font-weight: bold;
+  }
+
+/* ==========================================================================
+   ESTILOS PARA COMPATIBILIDADE E OVERRIDE
+   ========================================================================== */
+
+/* Container interno flexível dos cartões */
+.cc-cards-grid .cc-supabase-card > div:first-child {
+  flex: 1 1 auto;
+}
+
+/* Mensagens de erro e status */
+.cc-error-text {
+  color: red;
+  font-weight: 500;
+  text-align: center;
+  padding: 1rem;
+}
+
+.cc-no-results {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Limpeza de estilos conflitantes */
+#cc-supabase-results {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+#cc-supabase-results > .cc-cards-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+}
+
+/* ==========================================================================
+   NEW SHORTCODE LAYOUT SYSTEM
+   ========================================================================== */
+
+/* Base grid class for all card layouts */
+.cc-cards-grid {
+  display: grid !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Common card styles for all layouts */
+.cc-cards-grid .cc-supabase-card {
+  margin: 0 !important;
+  padding: 1rem !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 340px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  background: #fafbfc !important;
+  border: 1px solid #eef !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(0,0,80,0.03) !important;
+}
+
+/* Card images */
+.cc-cards-grid .cc-supabase-card img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 120px !important;
+  object-fit: contain !important;
+  margin: 0 0 0.75rem 0 !important;
+  border-radius: 4px !important;
+}
+
+/* Card titles */
+.cc-cards-grid .cc-supabase-card .cc-title {
+  font-size: 1.1rem !important;
+  font-weight: bold !important;
+  color: #000 !important;
+  margin: 0 0 0.5rem 0 !important;
+  line-height: 1.3 !important;
+}
+
+/* Card info rows */
+.cc-cards-grid .cc-supabase-card .cc-row {
+  margin-bottom: 0.4rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* Field labels in blue */
+.cc-cards-grid .cc-supabase-card .cc-row span:first-child {
+  color: #0032FA !important;
+  font-weight: 500 !important;
+}
+
+/* Field values in black */
+.cc-cards-grid .cc-supabase-card .cc-row span:last-child {
+  color: #000 !important;
+}
+
+/* Button container */
+.cc-cards-grid .cc-supabase-card .cc-row.btn {
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+/* Button styles */
+.cc-cards-grid .cc-supabase-card .btnA {
+  display: inline-block !important;
+  padding: 10px 20px !important;
+  font-size: 0.9rem !important;
+  background-color: #0032FA !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 100px !important;
+  transition: background-color 0.3s !important;
+  font-weight: 500 !important;
+}
+
+.cc-cards-grid .cc-supabase-card .btnA:hover {
+  background-color: #001f99 !important;
+}
+
+/* ==========================================================================
+   HEADER SECTION STYLES - For new shortcode layout
+   ========================================================================== */
+
+/* Header section container */
+.cc-header-section {
+  margin-bottom: 1.5rem;
+  max-width: 70%;
+}
+
+.cc-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.cc-header-title h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.cc-green-text {
+  color: #24B500;
+}
+
+.cc-header-search {
+  flex-shrink: 0;
+}
+
+.cc-search-form {
+  margin: 0;
+  position: relative;
+}
+
+.cc-search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cc-search-input-container input {
+  padding: 0.6rem 3rem 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  min-width: 280px;
+  outline: none;
+}
+
+.cc-search-input-container input:focus {
+  border-color: #24B500;
+  box-shadow: 0 0 0 2px rgba(36, 181, 0, 0.1);
+}
+
+.cc-search-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cc-search-btn:hover {
+  color: #24B500;
+}
+
+/* ==========================================================================
+   CATEGORY BUTTONS SECTION STYLES
+   ========================================================================== */
+
+   .cc-category-section {
+    margin-bottom: 2rem;
+    max-width: 70%;
+  }
+
+  .cc-category-form {
+    margin: 0;
+  }
+
+  .cc-category-buttons {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .cc-category-btn {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 1rem 0.5rem !important;
+    background: white !important;
+    border: 2px solid #f0f0f0 !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    min-height: 100px !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    width: 100% !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+  }
+
+  .cc-category-btn:hover {
+    border-color: #24B500 !important;
+    background: #f8fff8 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(36, 181, 0, 0.15) !important;
+  }
+
+  .cc-category-btn.active {
+    border-color: #24B500 !important;
+    background: #24B500 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(36, 181, 0, 0.25) !important;
+  }
+
+  .cc-category-btn.active .cc-category-text {
+    color: white !important;
+  }
+
+  .cc-category-icon {
+    margin-bottom: 0.5rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .cc-category-icon img {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain !important;
+  }
+
+  .cc-category-text {
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+
+  .cc-checkbox-dropdown {
+    position: relative;
+    width: 200px;
+  }
+  .cc-checkbox-dropdown .dropdown-selected {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .cc-checkbox-dropdown .dropdown-options {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 100;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none; /* show/hide with JS */
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  .cc-checkbox-dropdown.open .dropdown-options {
+    display: block;
+  }
+  .cc-checkbox-dropdown .dropdown-option {
+    padding: 6px 8px;
+  }
+
+/* Responsive design for category buttons */
+@media (max-width: 1400px) {
+  .cc-category-buttons {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.8rem !important;
+  }
+  
+  .cc-category-btn {
+    padding: 0.8rem 0.4rem !important;
+    min-height: 90px !important;
+  }
+  
+  .cc-category-text {
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cc-category-buttons {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  
+  .cc-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .cc-header-title {
+    text-align: center;
+  }
+  
+  .cc-search-input-container input {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cc-category-buttons {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .cc-category-btn {
+    min-height: 80px;
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .cc-header-title h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   2-COLUMN LAYOUT (credit_cards_supabase shortcode with filters)
+   ========================================================================== */
+
+/* 2-column grid layout */
+.cc-results-with-filters .cc-cards-grid,
+.cc-results-2-columns .cc-cards-grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+}
+
+/* ==========================================================================
+   4-COLUMN LAYOUT (cc_supabase_results standalone shortcode)
+   ========================================================================== */
+
+/* 4-column grid layout */
+.cc-results-standalone .cc-cards-grid,
+.cc-results-4-columns .cc-cards-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 1.2rem !important;
+}
+
+/* Slightly smaller cards for 4-column layout */
+.cc-results-4-columns .cc-cards-grid .cc-supabase-card {
+  height: 320px !important;
+  padding: 0.8rem !important;
+}
+
+.cc-results-4-columns .cc-cards-grid .cc-supabase-card .cc-title {
+  font-size: 1rem !important;
+}
+
+.cc-results-4-columns .cc-cards-grid .cc-supabase-card .cc-row {
+  font-size: 0.85rem !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.cc-results-4-columns .cc-cards-grid .cc-supabase-card .btnA {
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR ALL LAYOUTS
+   ========================================================================== */
+
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
+  .cc-results-4-columns .cc-cards-grid .cc-supabase-card {
+    height: 300px !important;
+    padding: 0.7rem !important;
+  }
+  
+  .cc-results-4-columns .cc-cards-grid .cc-supabase-card .cc-title {
+    font-size: 0.95rem !important;
+  }
+  
+  .cc-results-4-columns .cc-cards-grid .cc-supabase-card .cc-row {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .cc-results-4-columns .cc-cards-grid .cc-supabase-card .btnA {
+    padding: 6px 14px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Medium tablets */
+@media (max-width: 992px) {
+  .cc-results-4-columns .cc-cards-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+  }
+  
+  .cc-results-4-columns .cc-cards-grid .cc-supabase-card {
+    height: 320px !important;
+    padding: 0.8rem !important;
+  }
+  
+  .cc-results-4-columns .cc-cards-grid .cc-supabase-card img {
+    max-height: 100px !important;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  /* 4-column layout becomes 2-column */
+  .cc-results-4-columns .cc-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* 2-column layout becomes 1-column */
+  .cc-results-2-columns .cc-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .cc-cards-grid .cc-supabase-card {
+    height: 300px !important;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  /* All layouts become single column on mobile */
+  .cc-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .cc-cards-grid .cc-supabase-card {
+    height: auto !important;
+    min-height: 280px !important;
+    padding: 0.8rem !important;
+  }
+  
+  .cc-cards-grid .cc-supabase-card img {
+    max-height: 100px !important;
+  }
+  
+  .cc-cards-grid .cc-supabase-card .cc-title {
+    font-size: 1rem !important;
+  }
+  
+  .cc-cards-grid .cc-supabase-card .cc-row {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  
+  .cc-cards-grid .cc-supabase-card .btnA {
+    padding: 8px 16px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* ==========================================================================
+   BUTTONS PAGE LINK AND LINK
+   ========================================================================== */
+
+#cc-supbase-buttonpage > button, #cc-supbase-buttonlink > button{
+  display: flex;
+  padding: 24px 315px;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 100px;
+  border: 1px solid var(--Color-Brand-color-2, #0032FA);
+  background: var(--Color-Brand-color-2, #0032FA);
+  color: #ffff;
+}
+
+#cc-supbase-buttonpage > button:hover, #cc-supbase-buttonlink > button:hover{
+ background-color: #24B500;
+}

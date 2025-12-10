@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kit Presente de Experiências Personalizadas - O Presente Perfeito</title>
+  <meta name="description" content="Surpreenda com um Kit Presente de Experiências Personalizadas. Escolha entre jantares, spa, aventura e mais. Crie memórias inesquecíveis. A partir de R$ 99,90.">
+  <meta name="keywords" content="Kit presente, experiências personalizadas, presente criativo, voucher de experiência, presente para casal, presente de aniversário, presente de natal, presente original, dia dos namorados, spa, jantar romântico, aventura, aula de culinária">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#1a1a2e;
+      --card:#1f203a;
+      --muted:#c0c0d0;
+      --primary:#e94560; /* Vermelho/Rosa vibrante para experiências */
+      --primary-2:#ff6b81;
+      --accent:#00b894; /* Verde água para selo/garantia */
+      --text:#f0f0f5;
+      --white:#fff;
+      --shadow:0 10px 30px rgba(0,0,0,.4);
+      --radius:20px;
+      --radius-sm:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:radial-gradient(1200px 600px at 80% -10%,rgba(233,69,96,.2),transparent 40%),radial-gradient(900px 600px at -10% 10%,rgba(0,184,148,.15),transparent 40%),var(--bg);color:var(--text);}    
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1120px,92%);margin-inline:auto}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(26,26,46,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:15px}
+    .brand{display:flex;align-items:center;gap:15px;font-weight:700}
+    .brand .logo{width:45px;height:45px;border-radius:15px;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:grid;place-items:center;color:var(--white);box-shadow:var(--shadow)}
+
+    /* Hero */
+    .hero{padding:60px 0 30px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:10px;background:rgba(233,69,96,.2);color:#ffcdd2;border:1px dashed var(--primary-2);padding:10px 15px;border-radius:999px;font-weight:600}
+    h1{font-size:clamp(32px,4.5vw,50px);line-height:1.2;margin:18px 0 12px}
+    .sub{color:var(--muted);font-weight:500;font-size:1.1em}
+    .cta{display:flex;flex-wrap:wrap;gap:15px;margin-top:25px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 22px;border-radius:16px;font-weight:700;border:1px solid transparent;transition:.3s;cursor:pointer;font-size:1.05em}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:var(--white);box-shadow:var(--shadow)}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,.45)}
+    .btn-ghost{background:transparent;border-color:rgba(255,255,255,.15);color:var(--text)}
+    .btn-ghost:hover{background:rgba(255,255,255,.05)}
+
+    .hero-card{background:linear-gradient(180deg,#2a2a4a,rgba(31,32,58,.7));padding:20px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08)}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .gallery figure{margin:0;position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+    .gallery figcaption{position:absolute;inset:auto 12px 12px 12px;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);padding:10px 15px;border-radius:12px;font-size:13px;font-weight:600;color:var(--white)}
+    .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease-in-out}
+    .gallery figure:hover img{transform:scale(1.05)}
+
+    /* Highlights */
+    section{padding:60px 0}
+    .section-title{font-size:clamp(26px,3.5vw,36px);margin-bottom:20px;text-align:center;color:var(--primary)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);text-align:center}
+    .card div[style^="font-size"]{font-size:36px;margin-bottom:10px}
+    .card h3{margin:10px 0 8px;font-size:22px;color:var(--white)}
+    .muted{color:var(--muted);line-height:1.6}
+
+    /* Specs */
+    .specs{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:flex-start}
+    .specs ul{margin:0;padding-left:20px;list-style:none}
+    .specs ul li{margin-bottom:8px;position:relative;padding-left:25px}
+    .specs ul li::before{content:'✅';position:absolute;left:0;color:var(--accent)}
+    .specs .table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .specs .table tr:nth-child(odd){background:rgba(255,255,255,.03)}
+    .specs .table td{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.08);font-size:1.05em}
+    .specs .table td:first-child{font-weight:600;color:var(--white)}
+
+    /* Social Proof */
+    .stars{color:#ffd700;font-size:1.2em}
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .reviews .card p{font-style:italic}
+
+    /* FAQ */
+    details{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;transition:background .3s ease}
+    details:hover{background:rgba(255,255,255,.03)}
+    summary{cursor:pointer;font-weight:600;font-size:1.1em;padding-right:20px;position:relative}
+    summary::marker{content:''}
+    summary::after{content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);transition:transform .3s ease}
+    details[open] summary::after{content:'-';transform:translateY(-50%) rotate(180deg)}
+    details + details{margin-top:15px}
+    details p{margin-top:15px;padding-left:10px;border-left:2px solid var(--primary);}
+
+    /* Footer */
+    footer{padding:40px 0 80px;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.05);margin-top:60px}
+    .guarantee{display:flex;align-items:center;gap:10px;background:rgba(0,184,148,.15);border:1px solid rgba(0,184,148,.4);color:#a8ffeb;padding:12px 16px;border-radius:14px;font-weight:600}
+
+    /* Responsive */
+    @media(max-width:920px){
+      .hero-grid,.specs{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .grid-3,.reviews{grid-template-columns:1fr}
+      .section-title{text-align:left}
+      .card{text-align:left}
+      .card div[style^="font-size"]{font-size:30px}
+    }
+    @media(max-width:500px){
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kit Presente de Experiências Personalizadas",
+    "description": "Vouchers para experiências inesquecíveis: jantares, spa, aventura, culinária e mais. O presente perfeito para criar memórias.",
+    "category": "GiftExperience",
+    "brand": {"@type":"Brand","name":"Momentos Inesquecíveis"},
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "BRL",
+      "price": "99.90",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"><img src="images/Design-sem-nome-1.png" alt="Logo Kit Experiências" style="width:100%; height:100%; object-fit:contain;"></div>
+        <div>
+          <div style="font-size:14px;opacity:.75;">Presenteie com Emoção</div>
+          <div>Kit Experiências</div>
+        </div>
+      </div>
+      
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">NOVIDADE EXCLUSIVA • UAU PRESENTES LTDA • CNPJ: 21.004.970/0001-35 </span>
+          <h1>Kit Presente de Experiências Personalizadas <br><span style="opacity:.9">Crie Memórias Inesquecíveis</span></h1>
+          <p class="sub">Surpreenda com um presente que vai além do material. Escolha entre diversas experiências e proporcione momentos únicos.</p>
+          <div class="cta">
+            <a class="btn btn-primary" id="comprar" href="https://produto.mercadolivre.com.br/MLB-5522639576-caixa-de-presente-premium-rigida-magnetica-c-laco-28x20x9cm-_JM#polycard_client=search-nordic&search_layout=grid&position=35&type=item&tracking_id=072f5ce3-3a89-498f-82c4-3da94c8265d4&wid=MLB5522639576&sid=search">Quero Presentear a partir de R$ 99,90</a>
+            <a class="btn btn-ghost" href="#especificacoes">Ver Opções de Experiências</a>
+          </div>
+          <div style="margin-top:14px;font-size:14px;color:#c9cfe1">✨ Vouchers Digitais · 🌍 Várias Opções · 💖 Emoção Garantida</div>
+        </div>
+        <div class="hero-card">
+          <div class="gallery">
+            <figure>
+              <img src="images/romantic_dinner.png" alt="Jantar romântico para dois">
+              <figcaption>Jantar Romântico</figcaption>
+            </figure>
+            <figure>
+              <img src="images/spa_day.png" alt="Dia de spa relaxante">
+              <figcaption>Dia de Spa</figcaption>
+            </figure>
+            <figure>
+              <img src="images/adventure.png" alt="Aventura ao ar livre">
+              <figcaption>Aventura e Adrenalina</figcaption> 
+            </figure>
+            <figure>
+              <img src="images/cooking_class.png" alt="Aula de culinária divertida">
+              <figcaption>Aula de Culinária</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTAQUES -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">Por que escolher um Kit de Experiências?</h2>
+        <div class="grid-3">
+          <div class="card">
+            <div style="font-size:26px">💖</div>
+            <h3>Presente Inesquecível</h3>
+            <p class="muted">Ofereça mais do que um objeto, presenteie com a chance de criar memórias duradouras.</p>
+          </div>
+          <div class="card">
+            <div style="font-size:26px">🎯</div>
+            <h3>Totalmente Personalizável</h3>
+            <p class="muted">O presenteado escolhe a experiência que mais combina com seu estilo e desejos.</p>
+          </div>
+          <div class="card">
+            <div style="font-size:26px">🚀</div>
+            <h3>Praticidade e Emoção</h3>
+            <p class="muted">Fácil de comprar, emocionante de receber e simples de usar. A felicidade está a um clique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIFICAÇÕES -->
+    <section id="especificacoes">
+      <div class="container specs">
+        <div class="card">
+          <h2 class="section-title">Como funciona o Kit de Experiências?</h2>
+          <p style="white-space:pre-line">O Kit Presente de Experiências Personalizadas é a forma ideal de surpreender alguém especial com um presente único e memorável.
+
+<strong>Como Usar:</strong>
+• Escolha o Kit: Selecione o valor ou tema do kit que melhor se adapta ao presenteado.
+• Receba o Voucher: O presenteado receberá um voucher digital ou físico com um código exclusivo.
+• Ative e Escolha: Ele acessa nossa plataforma, ativa o código e escolhe a experiência dos sonhos entre as opções disponíveis.
+• Desfrute: Basta agendar e viver momentos inesquecíveis!
+
+<strong>Tipos de Experiências Disponíveis:</strong>
+• Gastronomia: Jantares em restaurantes renomados, degustações, aulas de culinária.
+• Bem-Estar: Dias de spa, massagens relaxantes, tratamentos estéticos.
+• Aventura: Passeios de balão, trilhas guiadas, esportes radicais.
+• Cultura e Lazer: Ingressos para shows, peças de teatro, workshops de arte.
+
+<strong>Destaques:</strong>
+• Flexibilidade: Ampla variedade de experiências para todos os gostos.
+• Validade Estendida: Vouchers com longa validade para maior comodidade.
+• Suporte Dedicado: Nossa equipe está pronta para auxiliar em todas as etapas.
+
+Adquira agora e transforme um simples presente em uma jornada de descobertas e emoções!
+
+<strong>Garantia de Satisfação:</strong> 60 dias
+          </p>
+        </div>
+        <div>
+          <table class="table" aria-label="Detalhes do Kit de Experiências">
+            <tbody><tr><td><strong>Formato</strong></td><td>Voucher Digital (imprimível)</td></tr>
+            <tr><td><strong>Validade</strong></td><td>12 meses a partir da ativação</td></tr>
+            <tr><td><strong>Resgate</strong></td><td>Plataforma online exclusiva</td></tr>
+            <tr><td><strong>Opções</strong></td><td>Gastronomia, Bem-Estar, Aventura, Cultura</td></tr>
+            <tr><td><strong>Suporte</strong></td><td>Atendimento dedicado ao cliente</td></tr>
+            <tr><td><strong>Garantia</strong></td><td>60 dias para troca ou reembolso</td></tr>
+          </tbody></table>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;gap:10px">
+            <div class="guarantee">✅ Satisfação garantida em até 60 dias</div>
+            <div class="price-pill" style="border-radius:12px">A partir de R$ <span style="font-size:20px">99,90</span></div>
+          </div>
+          <div class="cta" style="margin-top:16px">
+            <a class="btn btn-primary" href="https://produto.mercadolivre.com.br/MLB-5522639576-caixa-de-presente-premium-rigida-magnetica-c-laco-28x20x9cm-_JM#polycard_client=search-nordic&search_layout=grid&position=35&type=item&tracking_id=072f5ce3-3a89-498f-82c4-3da94c8265d4&wid=MLB5522639576&sid=search">Escolher meu Kit Agora</a><a class="btn btn-ghost" href="#faq">Dúvidas Frequentes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROVAS SOCIAIS -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">O que nossos clientes dizem</h2>
+        <div class="reviews">
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p>“Presenteei minha esposa com o kit e ela amou! Escolheu um jantar incrível.” — <strong>Carlos M.</strong></p>
+          </div>
+          <div class="card">
+            <div class="stars">★★★★★</div>
+            <p>“Recebi de presente e pude escolher um dia de spa maravilhoso. Experiência perfeita!” — <strong>Juliana S.</strong></p>
+          </div>
+          <div class="card">
+            <div class="stars">★★★★☆</div>
+            <p>“Muito prático e as opções são excelentes. Recomendo para quem quer inovar no presente.” — <strong>Fernanda P.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <details>
+          <summary>Como o presenteado recebe o voucher?</summary>
+          <p class="muted">O voucher pode ser enviado digitalmente por e-mail ou impresso por você para entrega física. Contém um código único para ativação.</p>
+        </details>
+        <details>
+          <summary>Qual a validade das experiências?</summary>
+          <p class="muted">Após a ativação, o presenteado tem 12 meses para escolher e agendar sua experiência.</p>
+        </details>
+        <details>
+          <summary>Posso trocar a experiência depois de escolhida?</summary>
+          <p class="muted">A troca da experiência é possível dentro do período de validade e conforme as políticas de nossos parceiros. Consulte nosso suporte para mais detalhes.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section id="checkout">
+      <div class="container">
+        <div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <h2 class="section-title" style="margin:0">Escolha o Kit Ideal</h2>
+            <p class="muted">Opções de kits para todos os orçamentos e ocasiões.</p>
+            <ul class="muted">
+              <li>✅ Vouchers flexíveis e digitais</li>
+              <li>✅ Ampla rede de parceiros</li>
+              <li>✅ Presenteie com emoção e memórias</li>
+            </ul>
+            <div class="cta" style="margin-top:10px">
+              <!-- Substitua o href pelo seu link real de checkout (Pix/Cartão/WhatsApp) -->
+              <a class="btn btn-primary" href="https://produto.mercadolivre.com.br/MLB-5522639576-caixa-de-presente-premium-rigida-magnetica-c-laco-28x20x9cm-_JM#polycard_client=search-nordic&search_layout=grid&position=35&type=item&tracking_id=072f5ce3-3a89-498f-82c4-3da94c8265d4&wid=MLB5522639576&sid=search" target="_blank" rel="nofollow noopener">Ver Kits e Comprar (A partir de R$ 99,90)</a>
+              <a class="btn btn-ghost" href="#" target="_blank" rel="nofollow noopener">Fale Conosco (WhatsApp)</a>
+            </div>
+            <div class="muted" style="font-size:12px;margin-top:8px">Pagamentos seguros via Pix, Cartão de Crédito/Débito.</div>
+          </div>
+          <div>
+            <div class="card" style="background:#0d111a;border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)">
+              <img src="images/Design-sem-nome-1.png" alt="Kit Presente de Experiências" style="border-radius:var(--radius-sm);margin-bottom:12px">
+              <h3 style="margin:0">O Presente que Marca</h3>
+              <p class="muted" style="font-size:14px">Um presente que se transforma em história. Surpreenda com a liberdade de escolha e a alegria de viver algo novo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="text-align:center">
+      <p>© 2025 Uau Presentes LTDA • CNPJ: 21.004.970/0001-35 • Todos os direitos reservados.</p>
+      <p style="margin-top:10px;"><a href="#" style="color:var(--muted);">Política de Troca</a> • <a href="#" style="color:var(--muted);">Política de Privacidade</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

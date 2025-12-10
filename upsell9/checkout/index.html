@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff">
+    <title>Checkout</title>
+    <meta name="description" content="Plataforma de pagamentos" />
+    <link rel="apple-touch-icon" href="" id="dynamic-favicon">
+    <link rel="icon" href="" id="dynamic-icon">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* outros visuais */
+        .contrib h3 {
+            margin: 1rem 0;
+            font-weight: 500
+        }
+
+        .contrib span {
+            margin: 1rem 0;
+            font-weight: 500
+        }
+
+        .valor-total h3 {
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        .valor-total span {
+            color: green;
+            font-weight: 600
+        }
+    html { background-color: #ffffff; height: 100%; }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header
+            style="background-image: linear-gradient(to right, #FF6A00, #E65C00); padding: 1rem; color: white; display:none"
+            id="pixScreenHeader">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ph ph-credit-card" style="font-size: 1.25rem;"></i>
+                    <h2 style="font-size: 1.125rem; font-weight: 700;">Pagamento Kwai</h2>
+                </div>
+                <button
+                    style="width: 2rem;height: 2rem;border-radius: 9999px;background-color: rgba(255, 255, 255, 0.2);transition: background-color 0.2s;display: flex;align-items: center;justify-content: center;color: white;border: none;"
+                    onmouseover="this.style.backgroundColor='rgba(255,255,255,0.3)'"
+                    onmouseout="this.style.backgroundColor='rgba(255,255,255,0.2)'">
+                    <i class="ph ph-info" style="font-size: 0.875rem;"></i>
+                </button>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 0.75rem; margin-bottom: 0.75rem;">
+                <img src="/images/logo.png" alt="Kwai" style="height: 2.25rem; filter: brightness(0) invert(1);"
+                    id="header-logo">
+            </div>
+            <div
+                style="background-color: rgba(255,255,255,0.2); border-radius: 0.75rem; padding: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; backdrop-filter: blur(4px);">
+                <i class="ph ph-shield-check"></i>
+                <p style="font-weight: 500;">Escaneie o QR Code ou copie o código PIX</p>
+            </div>
+        </header>
+        <!-- Tela do PIX (inicialmente oculta) -->
+        <div id="pixScreen" style="display: none">
+
+            <div class="pix-container">
+                <div class="contrib">
+                    <h3 style="
+                    margin: 10px 0 5px;
+                    font-size: 1.2rem;
+                    color: #484848;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                " id="checkout-titulo">
+                        <!-- preenchido via JS -->
+                    </h3>
+                    <span style="
+                    margin: 0 0 20px;
+                    font-size: 0.8rem;
+                    color: rgba(72, 72, 72, 0.6);
+                    font-family: Arial, sans-serif
+                " id="checkout-desc">
+                        <!-- preenchido via JS -->
+                    </span>
+                </div>
+                <div class="qr-code-container">
+                    <div id="qrcode"></div>
+                </div>
+
+                <div class="valor-total">
+                    <h3>Valor total: <span id="total-exibicao"></span></h3>
+                </div>
+                <p class="pix-copy-text">
+                    Copie o código Pix abaixo e cole em seu app para finalizar o pagamento.
+                </p>
+
+                <div class="pix-code-container">
+                    <input type="text" id="pixCode" readonly />
+                    <button id="copyPixButton" class="copy-button">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path
+                                d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z">
+                            </path>
+                        </svg>
+                        COPIAR CÓDIGO
+                    </button>
+                </div>
+
+                <div class="payment-instructions">
+                    <h3 style="text-align:center">Como pagar?</h3>
+                    <div class="instruction-step">
+                        <div class="step-icon">
+                            <i class="ph ph-bank"></i>
+                        </div>
+                        <p>Abra o app do seu banco e entre no ambiente Pix</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-icon">
+                            <i class="ph ph-qr-code"></i>
+                        </div>
+                        <p>
+                            Escolha Pagar com QR Code e aponte a câmera para o código ao lado.
+                        </p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-icon">
+                            <i class="ph ph-check-circle"></i>
+                        </div>
+                        <p>Confirme as informações e finalize seu pagamento.</p>
+                    </div>
+                </div>
+                <div
+                    style="display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap: 0.75rem;margin: 1.5rem 0;text-align: center;width: 100%;max-width: 600px;">
+                    <div
+                        style="background-color: white;padding: 1rem;border-radius: 0.75rem;box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);display: flex;flex-direction: column;align-items: center;text-align: center;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;">
+                        <i class="ph ph-shield-check"
+                            style="color: #FF6A00; font-size: 1.25rem; margin-bottom: 0.5rem;"></i>
+                        <p style="font-size: 0.75rem; font-weight: 500; color: #374151;">Pagamento Seguro</p>
+                    </div>
+                    <div
+                        style="background-color: white;padding: 1rem;border-radius: 0.75rem;box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);display: flex;flex-direction: column;align-items: center;text-align: center;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;">
+                        <i class="ph ph-lightning"
+                            style="color: #FF6A00; font-size: 1.25rem; margin-bottom: 0.5rem;"></i>
+                        <p style="font-size: 0.75rem; font-weight: 500; color: #374151;">Transação Instantânea</p>
+                    </div>
+                    <div
+                        style="background-color: white;padding: 1rem;border-radius: 0.75rem;box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);display: flex;flex-direction: column;align-items: center;text-align: center;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;">
+                        <i class="ph ph-headset" style="color: #FF6A00; font-size: 1.25rem; margin-bottom: 0.5rem;"></i>
+                        <p style="font-size: 0.75rem; font-weight: 500; color: #374151;">Suporte 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="loading-screen" style="display: none">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <h2>Gerando seu PIX...</h2>
+                <p>Aguarde um momento</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <button class="security-button">
+            <svg viewBox="0 0 24 24" class="security-icon">
+                <path
+                    d="M11.488 21.754c.294.157.663.156.957-.001 8.012-4.304 8.581-12.713 8.574-15.104a.988.988 0 0 0-.596-.903l-8.05-3.566a1.005 1.005 0 0 0-.813.001L3.566 5.747a.99.99 0 0 0-.592.892c-.034 2.379.445 10.806 8.514 15.115zM8.674 10.293l2.293 2.293 4.293-4.293 1.414 1.414-5.707 5.707-3.707-3.707 1.414-1.414z">
+                </path>
+            </svg>
+            Ambiente seguro
+        </button>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // --- 1. CONFIGURATION LOGIC (Ported from nlo-config.php) ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const upParam = urlParams.get('up');
+
+        // Defaults (Front)
+        let upsellUrl = "/upsell1/";
+        let valor = 19.90;
+        let checkoutTitulo = "Kwai Rewards";
+        let checkoutDesc = "Pagamento do IOF é obrigatório para liberação do saldo acumulado";
+        let ofertaNome = "Emagrecimento em sete dias"; // base name
+
+        // Switch Logic
+        if (upParam) {
+            switch (upParam) {
+                case "1":
+                    upsellUrl = "/upsell2/";
+                    valor = 16.72;
+                    ofertaNome += " Up1";
+                    break;
+                case "2":
+                    upsellUrl = "/upsell3/";
+                    valor = 9.90;
+                    ofertaNome += " Up2";
+                    break;
+                case "3":
+                    upsellUrl = "/upsell4/";
+                    valor = 14.57;
+                    ofertaNome += " Up3";
+                    break;
+                case "4":
+                    upsellUrl = "/upsell5/";
+                    valor = 27.90;
+                    ofertaNome += " Up4";
+                    break;
+                case "5":
+                    upsellUrl = "/upsell6/";
+                    valor = 11.00;
+                    ofertaNome += " Up5";
+                    break;
+                case "6":
+                    upsellUrl = "/upsell7/";
+                    valor = 9.50;
+                    ofertaNome += " Up6";
+                    break;
+                case "7":
+                    upsellUrl = "/upsell8/";
+                    valor = 27.90;
+                    ofertaNome += " Up7";
+                    break;
+                case "8":
+                    upsellUrl = "/upsell9/";
+                    valor = 11.00;
+                    ofertaNome += " Up8";
+                    break;
+                case "9":
+                    upsellUrl = "/upsell10/";
+                    valor = 6.47;
+                    ofertaNome += " Up9";
+                    break;
+                case "10":
+                    upsellUrl = "/upsell6/"; // Cycle back to 6 as per PHP
+                    valor = 19.90;
+                    ofertaNome += " Up10";
+                    break;
+                default:
+                    // Remain defaults
+                    break;
+            }
+        }
+
+        // Apply visual values
+        const valorExibicao = "R$ " + valor.toFixed(2).replace('.', ',');
+        document.getElementById("total-exibicao").innerText = valorExibicao;
+        document.getElementById("checkout-titulo").innerText = checkoutTitulo;
+        document.getElementById("checkout-desc").innerText = checkoutDesc;
+
+        // Configuration
+        const oferta = "configuravel";
+
+        // --- 2. RANDOM DATA GENERATION (Ported from PHP) ---
+        const primeirosNomes = [
+            "Ana", "João", "Maria", "Carlos", "Lucas", "Sofia", "Pedro", "Fernanda", "Eduardo",
+            "Isabela", "Gustavo", "Beatriz", "Ricardo", "Patrícia", "Roberto", "Juliana",
+            "Felipe", "Larissa", "Thiago", "Julio", "Cláudia", "Vitor", "Bruna", "Renato", "Vanessa"
+        ];
+        const sobrenomes = [
+            "Silva", "Santos", "Oliveira", "Costa", "Pereira", "Almeida", "Martins", "Rodrigues",
+            "Melo", "Dias", "Souza", "Nascimento", "Barbosa", "Araujo", "Cavalcanti", "Campos",
+            "Pinto", "Lima", "Carvalho", "Gomes", "Ferreira", "Ribeiro", "Castro", "Mendes",
+            "Azevedo", "Fernandes", "Morais", "Vieira", "Faria", "Pimentel"
+        ];
+        const terceirosNomes = [
+            "Lima", "Gomes", "Ribeiro", "Ferreira", "Mendes", "Azevedo", "Carvalho", "Fernandes",
+            "Figueiredo", "Moura", "Rocha", "Teixeira", "Silveira", "Lopes", "Santana", "Pereira",
+            "Alves", "Sá", "Castro", "Machado", "Fontes", "Mello", "Pimentel", "Tavares", "Barreto",
+            "Assis", "Leal", "Cunha", "Rezende", "Borges"
+        ];
+
+        function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+        function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+        const primeiroNome = rand(primeirosNomes);
+        const sobrenome = rand(sobrenomes);
+        let terceiroNome = rand(terceirosNomes);
+        while (terceiroNome === sobrenome) { terceiroNome = rand(terceirosNomes); }
+
+        const nomeCompleto = `${primeiroNome} ${sobrenome} ${terceiroNome}`;
+
+        // Generate normalized name for email
+        const nomeFormatado = nomeCompleto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "");
+        const dia = String(randInt(1, 31)).padStart(2, '0');
+        const mes = String(randInt(1, 12)).padStart(2, '0');
+        const domains = ["@gmail.com", "@hotmail.com", "@outlook.com", "@yahoo.com", "@icloud.com"];
+        const email = `${nomeFormatado}${dia}${mes}${rand(domains)}`;
+
+        // CPF Generator
+        function randomDigit() { return Math.floor(Math.random() * 10); }
+        function calcMod11(digits) {
+            let sum = 0;
+            for (let i = 0; i < digits.length; i++) {
+                sum += digits[i] * ((digits.length + 1) - i);
+            }
+            const remainder = sum % 11;
+            return remainder < 2 ? 0 : 11 - remainder;
+        }
+
+        let cpfDigits = [];
+        for (let i = 0; i < 9; i++) cpfDigits.push(randomDigit());
+        cpfDigits.push(calcMod11(cpfDigits)); // 1st verifier
+        cpfDigits.push(calcMod11(cpfDigits)); // 2nd verifier
+        const cpf = cpfDigits.join("");
+
+        // Phone Generator
+        const ddd = randInt(11, 99);
+        const hasNine = Math.random() < 0.5;
+        const number = hasNine ? `9${randInt(10000000, 99999999)}` : `${randInt(10000000, 99999999)}`;
+        const telefone = `${ddd}${number}`;
+
+
+        // Data variables for logic
+        const nomePreDefinido = nomeCompleto;
+        const emailPreDefinido = email;
+        const cpfPreDefinido = cpf;
+        const telefonePreDefinido = telefone;
+        let valorTotal = valor;
+
+
+        // Adiciona os listeners para os campos
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mostra a tela de loading
+            document.getElementById("loadingScreen").style.display = "flex";
+
+            // IMPORTANT: Gateway URL updated to Vercel API
+            const GATEWAY_URL = "/api/gateway";
+
+            // Puxar parâmetros originais
+            const params = new URLSearchParams(window.location.search);
+
+            // Garantir que algo será enviado, mesmo que vazio
+            const utmString = params.toString() || "utm_source=direct";
+
+            const formData = {
+                acao: "criar",
+                oferta: oferta,
+                valor: valorTotal,
+                nome: nomePreDefinido,
+                email: emailPreDefinido,
+                cpf: cpfPreDefinido,
+                telefone: telefonePreDefinido,
+                utm: encodeURIComponent(utmString)
+            };
+
+            const url = new URL(GATEWAY_URL, window.location.href);
+            // Correct relative path handling: if we are at /checkout/index.html, ../api/gateway resolves to /api/gateway
+
+            Object.keys(formData).forEach(key => {
+                url.searchParams.set(key, formData[key]);
+            });
+
+            // Exibe a tela de loading enquanto aguarda a resposta
+            document.getElementById("loadingScreen").style.display = "flex";
+
+            // Envia os dados para a API para gerar o código PIX
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        throw new Error(data.erroMsg || "Erro desconhecido na resposta da API");
+                    }
+
+                    if (data.pixCode && data.payment_id) {
+                        // Esconde a tela de loading após a resposta da API
+                        document.getElementById("loadingScreen").style.display = "none";
+
+                        // Oculta o formulário e exibe a tela com o código PIX
+                        document.getElementById("pixScreenHeader").style.display = "block";
+                        document.getElementById("pixScreen").style.display = "flex";
+
+                        // Gera o QR Code para o PIX
+                        new QRCode(document.getElementById("qrcode"), data.pixCode);
+
+                        // Preenche o campo com o código PIX
+                        document.getElementById("pixCode").value = data.pixCode;
+
+                        // Inicia a verificação do pagamento
+                        startPaymentCheck(data.payment_id);
+                    }
+                })
+                .catch(error => {
+                    // Esconde a tela de loading em caso de erro
+                    document.getElementById("loadingScreen").style.display = "none";
+                    console.error("Erro ao gerar PIX:", error);
+                    alert("Erro ao gerar o PIX: " + error.message + "\nPor favor, tente novamente.");
+                });
+        });
+
+        // Função para copiar o código PIX
+        document
+            .getElementById("copyPixButton")
+            .addEventListener("click", function () {
+                const pixCode = document.getElementById("pixCode"); // copia o valor do campo <input type="text" id="pixCode" readonly />
+                pixCode.select();
+                document.execCommand("copy");
+                this.innerHTML =
+                    '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path></svg>COPIADO!';
+                setTimeout(() => {
+                    this.innerHTML =
+                        '<svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path></svg>COPIAR CÓDIGO';
+                }, 2000);
+            });
+
+        // Função para verificar o status do pagamento
+        function startPaymentCheck(payment_id) {
+            // IMPORTANT: Gateway URL using Absolute Path
+            const GATEWAY_URL = "/api/gateway";
+
+            const checkPayment = async () => {
+                const url = new URL(GATEWAY_URL, window.location.origin); // Use Origin for absolute paths
+                url.searchParams.set("acao", "verificar");
+                url.searchParams.set("payment_id", payment_id);
+
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    const status = data?.status?.toLowerCase();
+                    if (status === "approved" || status === "completed") {
+
+                        // Logic to build upsell URL preserving params
+                        // using 'upsellUrl' defined at the top
+
+                        // Ensure upsellUrl is absolute or properly handled
+                        const targetUrl = new URL(upsellUrl, window.location.origin);
+                        const currentParams = new URLSearchParams(window.location.search);
+
+                        // Adiciona os parâmetros da página atual no targetUrl (sem sobrescrever os já existentes)
+                        for (const [key, value] of currentParams.entries()) {
+                            if (!targetUrl.searchParams.has(key)) {
+                                targetUrl.searchParams.set(key, value);
+                            }
+                        }
+
+                        targetUrl.searchParams.delete("up");
+                        targetUrl.searchParams.delete("valor");
+                        window.location.href = targetUrl.toString(); // Redireciona
+                    }
+                } catch (error) {
+                    console.error("Erro ao verificar pagamento:", error);
+                }
+            };
+
+            setInterval(checkPayment, 2000); // Verifica se o pix foi pago a cada 2 segundos
+        }
+    </script>
+</body>
+
+</html>

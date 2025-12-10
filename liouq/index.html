@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caixa de Presente Personalizada | Presentes Criativos e Elegantes - Uau Presentes</title>
+  <meta name="description" content="Procurando por presentes criativos? Conheça a Caixa de Presente Premium Personalizável da Uau Presentes. Uma opção elegante e única para surpreender em qualquer ocasião. Personalize a sua!">
+  <meta name="keywords" content="caixa de presente, presente personalizado, presentes criativos, presente elegante, caixa para presente, embalagem de luxo, presente de aniversário, presente de casamento, presente corporativo">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #dc2626; /* Vermelho elegante */
+      --primary-light: #ef4444;
+      --primary-dark: #b91c1c;
+      --secondary: #f8fafc; /* Branco suave */
+      --accent: #d4af37; /* Dourado */
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-accent: #fef2f2;
+      --border: #e5e7eb;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 60px;
+      background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(220, 38, 38, 0.1);
+      color: var(--primary-dark);
+      border: 1px solid rgba(220, 38, 38, 0.2);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    .sub {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .cta {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg-secondary);
+      border-color: var(--primary);
+    }
+
+    .features-list {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Gallery */
+    .hero-gallery {
+      position: relative;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      margin: 0;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 20px 16px 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      text-align: center;
+      margin-bottom: 48px;
+      color: var(--text-primary);
+    }
+
+    /* Benefits */
+    .benefits {
+      background: var(--bg-secondary);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .benefit-card {
+      background: var(--bg-primary);
+      padding: 32px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .benefit-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .benefit-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .benefit-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Specs */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .specs-intro {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .specs-details h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin: 32px 0 16px 0;
+      color: var(--text-primary);
+    }
+
+    .specs-details h3:first-child {
+      margin-top: 0;
+    }
+
+    .specs-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .specs-list li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-secondary);
+    }
+
+    .specs-list li::before {
+      content: '•';
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .specs-table-container {
+      background: var(--bg-primary);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+
+    .specs-table th,
+    .specs-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .specs-table th {
+      background: var(--bg-secondary);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .specs-table td:first-child {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .specs-table td:last-child {
+      color: var(--text-secondary);
+    }
+
+    .price-guarantee {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .guarantee-badge {
+      background: rgba(34, 197, 94, 0.1);
+      color: #059669;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .price-display {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .cta-section {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--bg-secondary);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-primary);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stars {
+      color: #fbbf24;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .testimonial-card strong {
+      color: var(--text-primary);
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item summary {
+      padding: 24px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-primary);
+      list-style: none;
+      position: relative;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-item p {
+      padding: 0 24px 24px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+    }
+
+    .cta-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 48px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .cta-card p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+
+    .cta-benefits {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .cta-benefits li {
+      padding: 8px 0;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .final-cta .btn-primary:hover {
+      background: var(--bg-secondary);
+    }
+
+    .final-cta .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .final-cta .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+    }
+
+    .payment-info {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-primary);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+      opacity: 0.8;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    footer a:hover {
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid,
+      .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .price-guarantee {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-section {
+        flex-direction: column;
+      }
+
+      .cta-benefits {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 60px 0 40px;
+      }
+
+      .cta-card {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Caixa de Presente Premium Personalizável",
+    "description": "Caixa de presente premium, rígida e personalizável, ideal para ocasiões especiais. Disponível em vermelho e branco com laços elegantes.",
+    "category": "GiftBox",
+    "brand": {"@type":"Brand","name":"Uau Presentes LTDA"},
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "BRL",
+      "price": "49.90",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">🎁</div>
+        <div>
+          <div class="brand-subtitle">Uau Presentes LTDA</div>
+          <div class="brand-title">Caixas Premium</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge">NOVIDADE EXCLUSIVA • UAU PRESENTES LTDA • CNPJ: 21.004.970/0001-35</span>
+          <h1>Caixa de Presente Premium Personalizável: <br><span class="highlight">A Arte de Presentear com Elegância</span></h1>
+          <p class="sub">Eleve o nível dos seus presentes com a nossa Caixa de Presente Premium Personalizável. Desenvolvida para impressionar, ela transforma qualquer item em uma lembrança inesquecível, combinando sofisticação, qualidade e um toque pessoal.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://www.lojacraft.com.br/produtos/caixa-de-presente-20x20x8-base-e-tampa-rigida-namorados-termometro-do-amor/">Comprar Agora a partir de R$ 49,90</a>
+            <a class="btn btn-ghost" href="#especificacoes">Ver Especificações</a>
+          </div>
+          <div class="features-list">✨ Personalização Exclusiva · 📦 Material Premium · 🎀 Laços Elegantes</div>
+        </div>
+        <div class="hero-gallery">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="images/gift_box_front_red_white.png" alt="Caixa de presente vermelha com laço branco">
+              <figcaption>Modelo Clássico</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/gift_box_open_white_red.png" alt="Caixa de presente branca aberta">
+              <figcaption>Interior Personalizado</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/gift_box_stack_red_white.png" alt="Caixas empilhadas">
+              <figcaption>Conjunto Premium</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="images/gift_box_detail_red_white.png" alt="Detalhe da caixa">
+              <figcaption>Acabamento Luxuoso</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits">
+      <div class="container">
+        <h2 class="section-title">Diferenciais que Encantam: Por que Nossas Caixas São Especiais?</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🎨</div>
+            <h3>Personalização Exclusiva</h3>
+            <p>Torne seu presente inesquecível com a possibilidade de adicionar nomes, mensagens, logotipos ou designs exclusivos. Cada caixa é uma obra de arte pensada por você.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">💎</div>
+            <h3>Qualidade Superior</h3>
+            <p>Fabricadas com papelão rígido de alta gramatura e acabamento impecável, nossas caixas garantem durabilidade, proteção e um toque de luxo que impressiona.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">✨</div>
+            <h3>Design Sofisticado</h3>
+            <p>Com fecho magnético e laços de cetim, cada detalhe é pensado para realçar a beleza do seu presente, transformando a entrega em um momento mágico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIFICAÇÕES -->
+    <section id="especificacoes" class="specs">
+      <div class="container specs-grid">
+        <div class="specs-content">
+          <h2 class="section-title">Especificações da Caixa Premium</h2>
+          <p class="specs-intro">Nossa Caixa de Presente Premium Personalizável é cuidadosamente projetada para oferecer a máxima elegância e funcionalidade.</p>
+          
+          <div class="specs-details">
+            <h3>Características Principais:</h3>
+            <ul class="specs-list">
+              <li>Material: Papelão rígido de alta gramatura (350g/m²)</li>
+              <li>Acabamento: Laminação fosca ou brilhante</li>
+              <li>Fecho: Sistema magnético invisível</li>
+              <li>Laço: Fita de cetim premium inclusa</li>
+              <li>Personalização: Impressão digital de alta qualidade</li>
+              <li>Tamanhos: Pequeno (15x15x8cm), Médio (20x20x10cm), Grande (25x25x12cm)</li>
+            </ul>
+            
+            <h3>Opções de Personalização:</h3>
+            <ul class="specs-list">
+              <li>Cores: Vermelho, branco, dourado, prateado</li>
+              <li>Texto personalizado (até 50 caracteres)</li>
+              <li>Logotipo ou imagem (formato PNG/JPG)</li>
+              <li>Escolha da cor do laço</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="specs-table-container">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th>Especificação</th>
+                <th>Detalhes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Material</td><td>Papelão rígido premium</td></tr>
+              <tr><td>Gramatura</td><td>350g/m²</td></tr>
+              <tr><td>Fecho</td><td>Magnético invisível</td></tr>
+              <tr><td>Personalização</td><td>Impressão digital HD</td></tr>
+              <tr><td>Prazo de produção</td><td>3-5 dias úteis</td></tr>
+              <tr><td>Garantia</td><td>30 dias</td></tr>
+            </tbody>
+          </table>
+          
+          <div class="price-guarantee">
+            <div class="guarantee-badge">✅ Satisfação garantida em 30 dias</div>
+            <div class="price-display">A partir de R$ <span class="price">49,90</span></div>
+          </div>
+          
+          <div class="cta-section">
+            <a class="btn btn-primary" href="https://www.lojacraft.com.br/produtos/caixa-de-presente-20x20x8-base-e-tampa-rigida-namorados-termometro-do-amor/">Personalizar Minha Caixa</a>
+            <a class="btn btn-ghost" href="#faq">Dúvidas Frequentes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">O que nossos clientes dizem</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Recebi uma caixa personalizada da Uau Presentes e fiquei impressionada com a qualidade e o cuidado nos detalhes. O presente se tornou ainda mais especial!"</p>
+            <strong>— Juliana F.</strong>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"As caixas são simplesmente maravilhosas! A personalização é fácil e o resultado final é sempre impecável. Recomendo para quem busca exclusividade."</p>
+            <strong>— Pedro H.</strong>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Utilizamos as caixas personalizadas para o lançamento do nosso produto e o feedback foi excelente. Agregou muito valor à nossa marca."</p>
+            <strong>— Equipe Marketing, Empresa X</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Como funciona o processo de personalização?</summary>
+            <p>Após a confirmação da sua compra, você receberá um e-mail com as instruções para enviar o texto, imagem ou logotipo que deseja aplicar na sua caixa. Nossa equipe de design criará um preview digital para sua aprovação antes de iniciarmos a produção, garantindo que tudo fique exatamente como você imaginou.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quais são as opções de cores e tamanhos disponíveis?</summary>
+            <p>Oferecemos nossas caixas premium nas cores vermelho e branco, com a opção de laços em diversas tonalidades para combinar perfeitamente com a sua escolha. Os tamanhos padrão são Pequeno (15x15x8cm), Médio (20x20x10cm) e Grande (25x25x12cm). Para outras cores ou tamanhos especiais, entre em contato com nosso atendimento.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Qual o prazo de produção e entrega?</summary>
+            <p>O prazo de produção da sua caixa personalizada é de 3 a 5 dias úteis, contados a partir da aprovação do layout. Após a produção, o tempo de entrega varia de 2 a 7 dias úteis, dependendo da sua localização. Você receberá um código de rastreamento para acompanhar seu pedido.</p>
+          </details>
+          <details class="faq-item">
+            <summary>As caixas são resistentes e reutilizáveis?</summary>
+            <p>Sim! Nossas caixas são fabricadas com papelão rígido de alta gramatura e acabamento de alta qualidade, o que as torna extremamente resistentes e duráveis. Elas são perfeitas para serem reutilizadas como organizadores ou para guardar outras lembranças, prolongando a experiência do presente.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2>Transforme Seu Presente em Uma Obra de Arte!</h2>
+            <p>Não perca a chance de surpreender com uma Caixa de Presente Premium Personalizável. Qualidade, elegância e exclusividade em um só lugar.</p>
+            <ul class="cta-benefits">
+              <li>✅ Personalização fácil e completa</li>
+              <li>✅ Materiais de luxo e acabamento impecável</li>
+              <li>✅ Entrega rápida para todo o Brasil</li>
+              <li>✅ Satisfação garantida ou seu dinheiro de volta</li>
+            </ul>
+            <div class="cta-buttons">
+              <a class="btn btn-primary" href="https://www.lojacraft.com.br/produtos/caixa-de-presente-20x20x8-base-e-tampa-rigida-namorados-termometro-do-amor/">Comprar Agora (A partir de R$ 49,90)</a>
+              <a class="btn btn-ghost" href="#" target="_blank">Fale Conosco (WhatsApp)</a>
+            </div>
+            <div class="payment-info">Pagamentos seguros via Pix, Cartão de Crédito/Débito.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Uau Presentes LTDA • CNPJ: 21.004.970/0001-35 • Todos os direitos reservados.</p>
+      <p><a href="#">Política de Troca</a> • <a href="#">Política de Privacidade</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

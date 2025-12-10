@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coleção Jardins Suspensos | Kits de Plantas Aromáticas para Cultivo em Casa</title>
+  <meta name="description" content="Descubra a Coleção Jardins Suspensos da Klabin ForYou. Kits completos de plantas aromáticas para cultivo em casa. Conecte-se com a natureza e cultive bem-estar no seu lar.">
+  <meta name="keywords" content="kits de jardinagem, plantas aromáticas, cultivo em casa, bem-estar natural, jardinagem urbana, plantas medicinais, horta caseira, sustentabilidade">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2D5016; /* Verde floresta profundo */
+      --primary-light: #4A7C59;
+      --primary-dark: #1A3009;
+      --secondary: #8FBC8F; /* Verde suave */
+      --accent: #D2B48C; /* Bege terroso */
+      --terracotta: #CD853F; /* Terracota */
+      --sage: #9CAF88; /* Verde sálvia */
+      --cream: #F5F5DC; /* Creme natural */
+      --text-primary: #2F4F2F;
+      --text-secondary: #556B2F;
+      --text-muted: #708090;
+      --bg-primary: #FEFEFE;
+      --bg-secondary: #F9F9F7;
+      --bg-accent: #F0F8F0;
+      --border: #E0E6E0;
+      --shadow: 0 8px 25px rgba(45, 80, 22, 0.08);
+      --shadow-lg: 0 15px 40px rgba(45, 80, 22, 0.12);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(254, 254, 254, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title {
+      font-family: 'Crimson Text', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, var(--bg-accent) 0%, var(--cream) 50%, var(--bg-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(143, 188, 143, 0.1) 0%, transparent 70%);
+      transform: rotate(15deg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(45, 80, 22, 0.08);
+      color: var(--primary-dark);
+      border: 1px solid rgba(45, 80, 22, 0.15);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(42px, 6vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-style: italic;
+      position: relative;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      opacity: 0.6;
+      border-radius: 2px;
+    }
+
+    .sub {
+      font-size: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.8;
+      max-width: 90%;
+    }
+
+    .cta {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 36px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-primary);
+      border-color: var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-ghost:hover {
+      background: var(--bg-secondary);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .features-list {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* Gallery */
+    .hero-gallery {
+      position: relative;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      margin: 0;
+      background: var(--bg-primary);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px) rotate(1deg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gallery-item:nth-child(even):hover {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(47, 79, 47, 0.9));
+      color: white;
+      padding: 24px 20px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(32px, 5vw, 48px);
+      text-align: center;
+      margin-bottom: 60px;
+      color: var(--text-primary);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--secondary), var(--accent));
+      border-radius: 2px;
+    }
+
+    /* Benefits */
+    .benefits {
+      background: var(--bg-secondary);
+      position: relative;
+    }
+
+    .benefits::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .benefit-card {
+      background: var(--bg-primary);
+      padding: 40px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .benefit-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .benefit-card h3 {
+      font-family: 'Crimson Text', serif;
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .benefit-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Kits Section */
+    .kits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+
+    .kit-card {
+      background: var(--bg-primary);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .kit-card.featured {
+      border: 2px solid var(--primary);
+      transform: scale(1.02);
+    }
+
+    .kit-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 10;
+    }
+
+    .kit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .kit-card.featured:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .kit-image {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .kit-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .kit-card:hover .kit-image img {
+      transform: scale(1.1);
+    }
+
+    .kit-content {
+      padding: 32px;
+    }
+
+    .kit-content h3 {
+      font-family: 'Crimson Text', serif;
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .kit-content p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .kit-includes {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .kit-includes li {
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .kit-includes li::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .kit-price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      padding: 16px;
+      background: var(--bg-accent);
+      border-radius: var(--radius-sm);
+    }
+
+    /* How it Works */
+    .how-it-works {
+      background: var(--bg-accent);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 auto 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .step h3 {
+      font-family: 'Crimson Text', serif;
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .step p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--bg-secondary);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-primary);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 80px;
+      color: var(--accent);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stars {
+      color: #FFD700;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .testimonial-card strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item summary {
+      padding: 28px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-primary);
+      list-style: none;
+      position: relative;
+      font-size: 16px;
+    }
+
+    .faq-item summary::after {
+      content: '+';
+      position: absolute;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .faq-item[open] summary::after {
+      content: '−';
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .faq-item p {
+      padding: 0 28px 28px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(30px, -30px) rotate(120deg); }
+      66% { transform: translate(-20px, 20px) rotate(240deg); }
+    }
+
+    .cta-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: var(--radius);
+      padding: 60px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-card h2 {
+      font-family: 'Crimson Text', serif;
+      font-size: 36px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .cta-card p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+
+    .cta-benefits {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .cta-benefits li {
+      padding: 12px 0;
+      opacity: 0.95;
+      font-size: 16px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta .btn-primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .final-cta .btn-primary:hover {
+      background: var(--cream);
+      transform: translateY(-3px);
+    }
+
+    .final-cta .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: white;
+    }
+
+    .final-cta .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: white;
+    }
+
+    .payment-info {
+      font-size: 14px;
+      opacity: 0.9;
+      letter-spacing: 0.3px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--text-primary);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 12px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: var(--transition);
+    }
+
+    footer a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid,
+      .testimonials-grid,
+      .kits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cta-benefits {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-card {
+        padding: 40px 24px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding: 80px 0 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 60px 0 40px;
+      }
+
+      .cta-card {
+        padding: 32px 20px;
+      }
+
+      .kit-content,
+      .benefit-card,
+      .testimonial-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="brand">
+          <div class="logo">🌿</div>
+          <div>
+            <span class="brand-subtitle">Klabin ForYou</span>
+            <div class="brand-title">Jardins Suspensos</div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge">NOVIDADE EXCLUSIVA • KLABIN FORYOU • CNPJ: 05.905.802/0001-64</span>
+          <h1>Coleção Jardins Suspensos: <br><span class="highlight">Cultive Bem-Estar em Casa</span></h1>
+          <p class="sub">Transforme seu lar em um oásis de tranquilidade com nossos kits de plantas aromáticas. Cada kit é uma jornada de conexão com a natureza, oferecendo não apenas plantas, mas momentos de paz e ingredientes frescos para sua culinária.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://wa.me/5571992473224" target="_blank">Começar Meu Jardim (A partir de R$ 49,90)</a>
+            <a class="btn btn-ghost" href="#kits">Explorar Kits</a>
+          </div>
+          <div class="features-list">🌱 Fácil Cultivo · 🌿 100% Natural · 🏡 Ideal para Casa</div>
+        </div>
+        <div class="hero-gallery">
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <img src="./images/kit_plantas_aromaticas_1.png" alt="Kit completo de plantas aromáticas">
+              <figcaption>Kit Completo</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./images/kit_plantas_aromaticas_2.png" alt="Plantio de mudas aromáticas">
+              <figcaption>Momento de Plantio</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./images/kit_plantas_aromaticas_3.png" alt="Jardim suspenso em casa">
+              <figcaption>Seu Jardim Crescendo</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="./images/kit_plantas_aromaticas_4.png" alt="Colheita de ervas aromáticas">
+              <figcaption>Colheita e Uso</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits">
+      <div class="container">
+        <h2 class="section-title">Mais que Plantas: Uma Experiência de Bem-Estar</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🧘‍♀️</div>
+            <h3>Terapia Natural</h3>
+            <p>O cultivo de plantas é uma forma comprovada de reduzir o estresse e promover relaxamento. Cada momento cuidando do seu jardim é um momento de mindfulness.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🌱</div>
+            <h3>Sustentabilidade</h3>
+            <p>Nossos kits utilizam vasos biodegradáveis, sementes orgânicas e embalagens eco-friendly. Cultive com consciência ambiental.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🍃</div>
+            <h3>Ingredientes Frescos</h3>
+            <p>Tenha sempre à mão ervas frescas para temperar seus pratos, preparar chás medicinais ou criar aromas naturais em casa.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🏠</div>
+            <h3>Decoração Viva</h3>
+            <p>Transforme qualquer ambiente com o verde vibrante das plantas. Purificam o ar e trazem vida para sua decoração.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KITS DISPONÍVEIS -->
+    <section id="kits" class="kits">
+      <div class="container">
+        <h2 class="section-title">Nossos Kits de Cultivo</h2>
+        <div class="kits-grid">
+          <div class="kit-card">
+            <div class="kit-image">
+              <img src="./images/kit_plantas_aromaticas_1.png" alt="Kit Iniciante">
+            </div>
+            <div class="kit-content">
+              <h3>Kit Iniciante</h3>
+              <p>Perfeito para quem está começando. Inclui manjericão, hortelã e salsinha - as ervas mais fáceis de cultivar.</p>
+              <ul class="kit-includes">
+                <li>3 vasos biodegradáveis</li>
+                <li>Sementes orgânicas certificadas</li>
+                <li>Terra adubada premium</li>
+                <li>Guia de cultivo ilustrado</li>
+              </ul>
+              <div class="kit-price">R$ 49,90</div>
+            </div>
+          </div>
+          
+          <div class="kit-card featured">
+            <div class="kit-badge">Mais Vendido</div>
+            <div class="kit-image">
+              <img src="./images/kit_plantas_aromaticas_2.png" alt="Kit Aromático">
+            </div>
+            <div class="kit-content">
+              <h3>Kit Aromático</h3>
+              <p>Para os amantes de sabores intensos. Alecrim, tomilho, orégano e manjericão roxo para uma culinária especial.</p>
+              <ul class="kit-includes">
+                <li>4 vasos biodegradáveis</li>
+                <li>Sementes premium importadas</li>
+                <li>Terra enriquecida com húmus</li>
+                <li>Borrifador e etiquetas</li>
+                <li>E-book de receitas exclusivas</li>
+              </ul>
+              <div class="kit-price">R$ 79,90</div>
+            </div>
+          </div>
+          
+          <div class="kit-card">
+            <div class="kit-image">
+              <img src="./images/kit_plantas_aromaticas_3.png" alt="Kit Medicinal">
+            </div>
+            <div class="kit-content">
+              <h3>Kit Medicinal</h3>
+              <p>Plantas com propriedades terapêuticas. Camomila, erva-cidreira, capim-limão e lavanda para chás relaxantes.</p>
+              <ul class="kit-includes">
+                <li>4 vasos biodegradáveis</li>
+                <li>Sementes medicinais selecionadas</li>
+                <li>Substrato especial para ervas</li>
+                <li>Guia de propriedades medicinais</li>
+                <li>Sachês para chás</li>
+              </ul>
+              <div class="kit-price">R$ 89,90</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="how-it-works">
+      <div class="container">
+        <h2 class="section-title">Como Funciona</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Escolha Seu Kit</h3>
+            <p>Selecione o kit que mais combina com seu estilo de vida e preferências culinárias.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Plante com Amor</h3>
+            <p>Siga nosso guia ilustrado e plante suas sementes nos vasos biodegradáveis inclusos.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Cuide e Observe</h3>
+            <p>Regue com carinho e acompanhe o crescimento das suas plantas dia após dia.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Colha e Desfrute</h3>
+            <p>Em poucas semanas, colha suas ervas frescas e desfrute dos sabores e aromas únicos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials">
+      <div class="container">
+        <h2 class="section-title">Histórias de Quem Cultiva</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Nunca pensei que seria tão relaxante cuidar de plantas! Meu Kit Aromático já está produzindo e meus pratos ficaram muito mais saborosos."</p>
+            <strong>— Marina S., Chef Amadora</strong>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"O Kit Medicinal mudou minha rotina. Agora tomo chá de camomila da minha própria horta antes de dormir. É uma sensação única!"</p>
+            <strong>— Roberto M., Aposentado</strong>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Comprei para minha filha adolescente e ela se apaixonou! Agora ela cuida das plantas todos os dias e se sente mais conectada com a natureza."</p>
+            <strong>— Claudia L., Mãe</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>É difícil cultivar plantas aromáticas em casa?</summary>
+            <p>Não! Nossas plantas foram selecionadas especificamente por serem fáceis de cultivar. Cada kit vem com um guia detalhado e nossas sementes têm alta taxa de germinação. Mesmo iniciantes conseguem excelentes resultados.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quanto tempo leva para as plantas crescerem?</summary>
+            <p>A germinação acontece entre 7 a 14 dias, e você pode começar a colher pequenas folhas em 3-4 semanas. O crescimento completo varia entre 6-8 semanas, dependendo da espécie e cuidados.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Preciso de muito espaço ou luz solar direta?</summary>
+            <p>Não necessariamente! Nossas plantas se adaptam bem a ambientes internos com luz indireta. Uma janela com algumas horas de luz natural por dia é suficiente. Os kits são compactos e cabem em qualquer apartamento.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Os vasos são realmente biodegradáveis?</summary>
+            <p>Sim! Nossos vasos são feitos de fibra de coco e outros materiais naturais. Após o uso, podem ser compostados ou até mesmo plantados diretamente na terra, onde se decompõem naturalmente.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Oferecem suporte após a compra?</summary>
+            <p>Claro! Temos uma equipe de especialistas em jardinagem que oferece suporte via WhatsApp. Além disso, enviamos dicas semanais por e-mail para ajudar no cuidado das suas plantas.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2>Pronto para Cultivar Seu Bem-Estar?</h2>
+            <p>Junte-se a milhares de pessoas que já descobriram a alegria de cultivar suas próprias plantas aromáticas. Comece sua jornada verde hoje mesmo!</p>
+            <ul class="cta-benefits">
+              <li>🌱 Kits completos e fáceis de usar</li>
+              <li>🚚 Entrega rápida em todo o Brasil</li>
+              <li>💚 100% sustentável e orgânico</li>
+              <li>📞 Suporte especializado incluído</li>
+            </ul>
+            <div class="cta-buttons">
+              <a class="btn btn-primary" href="https://wa.me/5571992473224" target="_blank">Escolher Meu Kit</a>
+              <a class="btn btn-ghost" href="https://wa.me/5571992473224" target="_blank">Falar com Especialista</a>
+            </div>
+            <div class="payment-info">Pagamento seguro • Frete grátis acima de R$ 99 • Garantia de germinação</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Copyright 2025 — © Klabin ForYou Solucoes em Papel S.A. CNPJ/MF nº 05.905.802/0001-64 Avenida Brigadeiro Faria Lima, nº 3600, 3º andar CEP 04538-132 • Todos os direitos reservados.</p>
+      <p><a href="#">Política de Privacidade</a> • <a href="#">Termos de Uso</a></p>
+    </div>
+  </footer>
+</body>
+</html>

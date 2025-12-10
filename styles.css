@@ -1,0 +1,1323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #0B4627;
+    --accent-color: #E0FAEC;
+    --text-color: #000000;
+    --background-color: #ffffff;
+    --font-family: 'Inter', sans-serif;
+}
+
+html {
+    background-color: var(--background-color);
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 30px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-balance {
+    background-color: #fff;
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E5E6E7;
+}
+
+.btn-withdraw {
+    background-color: #FF4906;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FF4906;
+}
+
+/* Progress Bar */
+.progress-container {
+    background-color: #E5E6E7;
+    border-radius: 99px;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #FF4906;
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.3s ease;
+}
+
+/* Question */
+.question-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.question-text {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.1;
+    color: #000;
+}
+
+.instruction-text {
+    font-size: 16px;
+    color: #6B7280;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Options */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    color: #000;
+}
+
+.option-card.selected {
+    border-color: #FF4906;
+    /* Keeps border same unless we want to change it */
+    background-color: #fff;
+}
+
+.option-emoji {
+    font-size: 26px;
+    margin-right: 10px;
+}
+
+.option-label {
+    font-size: 16px;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.checkbox-custom {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #CFD1D4;
+    border-radius: 5px;
+    position: relative;
+    margin-left: auto;
+    transition: background-color 0.3s ease;
+}
+
+.option-card.selected .checkbox-custom {
+    border-color: #FF4906;
+    background-color: #FF4906;
+}
+
+.option-card.selected .checkbox-custom::after {
+    content: '\2713';
+    /* Unicode checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Continue Button */
+.continue-button {
+    background-color: #FF4906;
+    color: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.continue-button:hover {
+    background-color: #D73A00;
+}
+
+.continue-button:active {
+    transform: scale(0.98);
+}
+
+.error-message {
+    color: #cf2e2e;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+/* Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+    background-color: #fff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 320px;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+.popup-header {
+    background-color: var(--accent-color);
+    padding: 15px;
+    text-align: center;
+}
+
+.popup-title {
+    color: var(--secondary-color);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.popup-body {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.popup-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.popup-reward {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 15px 0;
+    color: #000;
+}
+
+.popup-message {
+    font-size: 16px;
+    color: #5C5C5C;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.popup-button {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    border-radius: 99px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Withdrawal Page */
+.withdrawal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.icon-back,
+.icon-close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.withdrawal-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.withdrawal-icon {
+    width: 69px;
+    height: 69px;
+    margin-bottom: 20px;
+}
+
+.balance-card {
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.balance-title {
+    font-size: 18px;
+    color: #5C5C5C;
+    margin-bottom: 10px;
+}
+
+.balance-amount {
+    font-size: 48px;
+    font-weight: 700;
+    color: #000;
+}
+
+.last-rewards {
+    font-size: 16px;
+    color: #5C5C5C;
+    margin-bottom: 30px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Bonus Button */
+.bonus-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.bonus-button {
+    display: block;
+    width: 100%;
+    background-color: #EBFCF2;
+    color: #00874D;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/* --- Saque Page Redesign (Precision Match) --- */
+.withdrawal-container.redesign {
+    padding: 20px;
+    background-color: #F6F6F6;
+    /* Exact match from original */
+    min-height: 100vh;
+    font-family: "Inter", Sans-serif;
+}
+
+/* Header */
+.withdrawal-header-redesign {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 16px 0;
+    /* Match original padding */
+}
+
+.withdrawal-title-redesign {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Balance Card */
+.balance-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 0;
+    /* Essential for the merged look */
+}
+
+.balance-card-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 12px 12px 12px 12px;
+    /* Original has 12px all around, but layout might mask it. Let's try 12px 12px 0 0 for better merge if needed, but original CSS says 12px. Let's trust original CSS + border-bottom logic */
+    border-bottom: 1px dashed #A4A4A4;
+    padding: 0;
+    /* Original has 0 padding on the widget container, but internal widgets have padding */
+    min-height: 117px;
+    position: relative;
+    border-bottom-left-radius: 0;
+    /* To connect */
+    border-bottom-right-radius: 0;
+    /* To connect */
+}
+
+.balance-info {
+    padding-left: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.balance-title-text {
+    color: #FFFFFF;
+    font-family: "Inter", Sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.balance-amount-text {
+    color: #FFFFFF;
+    font-family: "Inter", Sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.balance-icon-container {
+    padding-right: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 40%;
+}
+
+.balance-icon-container img {
+    width: 69px;
+    height: 69px;
+}
+
+.balance-card-bottom {
+    background-color: #000000;
+    border-radius: 0 0 12px 12px;
+    padding: 15px 20px;
+}
+
+.last-rewards-text {
+    color: #9E9E9E;
+    font-family: "Inter", Sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* PIX Validation Form */
+.pix-validation-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 24px 12px;
+    margin-top: 20px;
+    box-shadow: none;
+    /* Original doesn't seem to have shadow, just flat on gray bg */
+}
+
+.pix-card-title {
+    color: #000000;
+    font-family: "Inter", Sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.pix-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pix-label-text {
+    color: #9E9E9E;
+    font-family: "Inter", Sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.pix-icon-svg {
+    fill: #9E9E9E;
+    width: 20px;
+    height: 20px;
+}
+
+.pix-input {
+    width: 100%;
+    padding: 16px;
+    /* Match original */
+    background-color: #ffffff;
+    border: 1px solid #DADADA;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 16px;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Inter", Sans-serif;
+    font-weight: 600;
+}
+
+.pix-input::placeholder {
+    color: #757575;
+    font-weight: 400;
+}
+
+.btn-validate-pix {
+    background-color: #ff4906;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 16px 0;
+    width: 100%;
+    font-size: 14px;
+    /* Default size for elementor buttons is often 14-15px */
+    font-weight: 700;
+    font-family: "Inter", Sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-validate-pix:hover {
+    color: #ffffff;
+}
+
+/* Invite Section */
+.invite-card {
+    background-color: #ff4906;
+    /* Original inline style */
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.invite-pill {
+    background-color: #d1671c;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    align-self: flex-start;
+    /* Original has align-left mobile */
+}
+
+.invite-title {
+    color: #FFFFFF;
+    font-family: "Inter", Sans-serif;
+    font-size: 24px;
+    /* 24px from CSS */
+    font-weight: 600;
+    line-height: 1.2em;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.invite-subtitle {
+    color: #FFFFFF;
+    font-family: "Inter", Sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+}
+
+.invite-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.btn-invite-friends {
+    background-color: #F9FD20;
+    color: #000000;
+    border: none;
+    border-radius: 99px;
+    padding: 20px 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.invite-code-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.invite-code-box svg {
+    fill: #F9FD20;
+    /* Icon color */
+    width: 14px;
+    height: 14px;
+}
+
+/* Footer Section */
+.footer-info-card {
+    margin-top: 20px;
+    background-color: #fff;
+    /* Might be transparent in original? Checking... 'elementor-element-1a9313ed' bg color is #FFFFFF */
+    border-radius: 12px;
+    padding: 24px 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-title {
+    color: #000000;
+    font-family: "Inter", Sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-subtitle {
+    color: #777777;
+    font-family: "Inter", Sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.footer-terms-redesign {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #D0D0D0;
+    /* From elementor-element-23775449 */
+    background-color: #F6F6F6;
+}
+
+.footer-terms-text {
+    color: #777777;
+    font-family: "Inter", Sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5em;
+    margin: 0;
+}
+
+/* --- Saque1: Processing Page --- */
+#loading-page {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.processing-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.processing-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.processing-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #D8D8D8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.processing-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #FF4906;
+    transition: width 0.5s ease;
+}
+
+/* --- IOF Page --- */
+.iof-container {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.iof-header {
+    margin-bottom: 20px;
+}
+
+.iof-icon {
+    font-size: 40px;
+    color: #FF4906;
+    /* Generic warning color if SVG not used, but likely SVGs will be used */
+    margin-bottom: 15px;
+}
+
+.iof-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.iof-warning-card {
+    background-color: #FFF4F4;
+    border: 1px solid #FFCDD2;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.iof-warning-text {
+    font-size: 14px;
+    color: #D32F2F;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.iof-summary-card {
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #5C5C5C;
+}
+
+.summary-row.total {
+    border-top: 1px solid #E5E5E5;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-weight: 700;
+    color: #000;
+    font-size: 18px;
+}
+
+.summary-value.negative {
+    color: #D32F2F;
+}
+
+.iof-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #E8F5E9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #2E7D32;
+    font-weight: 600;
+    text-align: left;
+}
+
+.btn-pay-iof {
+    background-color: #003772;
+    /* Blue from original */
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px;
+    border-radius: 8px;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.btn-pay-iof:hover {
+    background-color: #002a5c;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.faq-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+/* --- Base Styles --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+/* SweetAlert2 Overrides to match original */
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+    background-color: #7066e0 !important;
+    /* Exact match */
+    border-radius: 4px !important;
+    font-size: 1em !important;
+    padding: 0.625em 1.1em !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+    border-radius: 5px !important;
+    /* Matches --swal2-border-radius: 0.3125rem */
+    width: 32em !important;
+    max-width: 100% !important;
+    font-size: 1rem !important;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+    padding: 0.8em 1em 0 !important;
+    color: inherit !important;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+    background-color: #f9f9f9;
+    border-left: 3px solid #003772;
+    margin-top: 5px;
+    border-radius: 0 0 8px 8px;
+    line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-question::after {
+    content: '-';
+}
+
+/* Saque1 - Amount Selection Page Styles */
+.bank-transfer-option {
+    display: flex;
+    align-items: center;
+    background-color: #F6F6F6;
+    border-bottom: 1px dashed #A4A4A4;
+    border-radius: 12px 12px 0 0;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.bank-transfer-icon {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bank-transfer-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #9E9E9E;
+    font-weight: 500;
+}
+
+.bank-icons-row {
+    background-color: #F6F6F6;
+    padding: 15px 20px;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.amount-options-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.amount-btn {
+    flex: 1;
+    background-color: #F6F2F6;
+    border: 1px solid #F6F2F6;
+    border-radius: 4px;
+    padding: 16px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.amount-btn:hover,
+.amount-btn.selected {
+    background-color: #FFF3F8;
+    color: #FE2B54;
+    border-color: #FE2B54;
+}
+
+
+
+
+/* --- IOF Page Specific Styles (Extracted from source) --- */
+
+
+
+/* FAQ Section */
+.faq-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: "Inter", Sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    /* Critical for padding */
+}
+
+.faq-title {
+    font-size: 35px;
+    font-weight: 600;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    margin-bottom: 15px;
+    line-height: 1.125;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    /* Ensure padding doesn't overflow */
+    max-width: 100%;
+    /* Prevent weird expansion */
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Inter", Sans-serif;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    /* Fix for width: 100% + padding */
+}
+
+.faq-question:hover {
+    background-color: #f1f1f1;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Inter", Sans-serif;
+    color: #6e6d6d;
+    border-left: 3px solid #007bff;
+    background-color: #fefefe;
+}
+
+/* Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.checkbox-container label {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #535862;
+    line-height: 1.4;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Payment Button (btn33) */
+.btn33 {
+    background: #003772;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 18px 16px;
+    border: none;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, cursor 0.3s ease;
+    pointer-events: none;
+    /* Starts disabled */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn33.enabled {
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* General Layout Tweaks for IOF - Matching Elementor Source */
+.container.iof-container {
+    background-color: #FFFFFF;
+    /* var(--wp--preset--color--base) */
+    font-family: 'Manrope', sans-serif;
+    color: #111111;
+    /* var(--wp--preset--color--contrast) */
+    padding: 20px;
+    padding-top: 0;
+}
+
+.elementor-heading-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    line-height: 1.125;
+    color: #111111;
+    margin: 0 0 20px 0;
+}
+
+.elementor-heading-title.elementor-size-default {
+    font-size: 1rem;
+    /* Adjust approx */
+}
+
+/* Guarantee Section overrides */
+.guarantee-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px 0;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+/* Missing Layout Classes for IOF */
+.iof-summary-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.summary-value.negative {
+    color: #DC3545;
+}
+
+.summary-row.total {
+    font-size: 16px;
+    font-weight: 800;
+    color: #000;
+    margin-top: 15px;
+}
+
+.payment-method-section {
+    margin-bottom: 30px;
+}
+
+.payment-method-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.pix-method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #F8F9FA;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.guarantee-icon {
+    width: 40px;
+    color: #28a745;
+}
+
+.guarantee-text h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.guarantee-text p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* --- Notification Toast Styles --- */
+.notification-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    transform: translateX(120%);
+    /* Start completely off-screen to the right */
+    background-color: #FF4906;
+    /* Kwai Orange Background */
+    border-radius: 12px;
+    padding: 10px 16px;
+    box-shadow: 0 4px 15px rgba(255, 73, 6, 0.4);
+    /* Colored shadow */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Inter', sans-serif;
+    width: auto;
+    max-width: 90%;
+    white-space: nowrap;
+}
+
+.notification-toast.visible {
+    transform: translateX(0);
+    /* Slide in to original position */
+    opacity: 1;
+}
+
+.notif-icon {
+    font-size: 20px;
+    color: #FF4906;
+    /* Icon color inside white circle */
+    background: #fff;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.notif-content {
+    display: flex;
+    flex-direction: row;
+    /* Single line */
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: left;
+    gap: 4px;
+    color: #fff;
+    /* White text */
+}
+
+.notif-name {
+    font-weight: 700;
+    color: #fff;
+}
+
+.notif-text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.notif-amount {
+    font-weight: 800;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Ensure Popup Overlay is above everything else but below toast if needed? No, toast on top */
+.popup-overlay {
+    z-index: 9000;
+}

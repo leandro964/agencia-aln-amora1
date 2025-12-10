@@ -1,0 +1,18 @@
+/* Public CSS for Trek CTA Suite v2.2.1 */
+.trek-cta-wrap { display:flex; flex-direction:column; gap:10px; }
+.trek-cta-btn { --cta-bg:#000; --cta-fg:#fff; display:flex; align-items:center; justify-content:space-between; text-decoration:none; padding:12px 16px; background:var(--cta-bg); color:var(--cta-fg)!important; border-radius:16px; box-shadow:0 2px 0 rgba(0,0,0,.15); transition:transform .05s ease, filter .15s ease, box-shadow .15s ease; font-weight:700; line-height:1.2; }
+.trek-cta-btn:hover { filter:brightness(.92); box-shadow:0 4px 0 rgba(0,0,0,.25); }
+.trek-cta-btn:active { transform:translateY(1px); }
+.trek-cta-left { display:inline-flex; align-items:center; gap:10px; }
+.trek-cta-emoji { display:inline-flex; width:22px; height:22px; align-items:center; justify-content:center; font-size:16px; line-height:1; border-radius:4px; background:rgba(255,255,255,.12); padding:2px 4px; color:inherit; }
+.trek-cta-text { color:inherit; }
+.trek-cta-arrow { font-size:18px; color:inherit!important; opacity:1; }
+.trek-card { --card-bg:#fff; --card-fg:#1f2937; --btn-bg:#1e88e5; --btn-fg:#fff; --radius:16px; background:var(--card-bg); color:var(--card-fg); border-radius:var(--radius); box-shadow:var(--card-shadow, 0 8px 24px rgba(0,0,0,.08)); overflow:hidden; }
+.trek-card-media img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
+.trek-card-body { padding:20px; }
+.trek-center { text-align:center; }
+.trek-card-title { margin:0 0 10px; font-weight:800; font-size:22px; line-height:1.25; }
+.trek-card-text { margin:0 0 16px; font-size:16px; line-height:1.6; opacity:.9; }
+.trek-card-cta { display:inline-block; text-decoration:none; background:var(--btn-bg); color:var(--btn-fg)!important; padding:12px 18px; border-radius:12px; font-weight:800; transition:filter .15s ease, transform .05s ease; margin:0 auto; }
+.trek-card-cta:hover { filter:brightness(.95); }
+.trek-card-cta:active { transform:translateY(1px); }
